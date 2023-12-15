@@ -51,8 +51,99 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_QLHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_QLHoaDon.designer.cs">
+      <DependentUpon>frm_QLHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_CTHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_CTHoaDon.designer.cs">
+      <DependentUpon>frm_CTHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_BanHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_BanHang.designer.cs">
+      <DependentUpon>frm_BanHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_InHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_InHoaDon.designer.cs">
+      <DependentUpon>frm_InHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_InPhieuNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_InPhieuNhap.designer.cs">
+      <DependentUpon>frm_InPhieuNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_LoaiHangHoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_LoaiHangHoa.designer.cs">
+      <DependentUpon>frm_LoaiHangHoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_NhaCungCap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_NhaCungCap.designer.cs">
+      <DependentUpon>frm_NhaCungCap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_NhapHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_NhapHang.designer.cs">
+      <DependentUpon>frm_NhapHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_PhieuGiamGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_PhieuGiamGia.designer.cs">
+      <DependentUpon>frm_PhieuGiamGia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_HangHoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_HangHoa.designer.cs">
+      <DependentUpon>frm_HangHoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KetNoiDB.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frm_QLHoaDon.resx">
+      <DependentUpon>frm_QLHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_CTHoaDon.resx">
+      <DependentUpon>frm_CTHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_BanHang.resx">
+      <DependentUpon>frm_BanHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_InHoaDon.resx">
+      <DependentUpon>frm_InHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_InPhieuNhap.resx">
+      <DependentUpon>frm_InPhieuNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_LoaiHangHoa.resx">
+      <DependentUpon>frm_LoaiHangHoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_NhaCungCap.resx">
+      <DependentUpon>frm_NhaCungCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_NhapHang.resx">
+      <DependentUpon>frm_NhapHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_PhieuGiamGia.resx">
+      <DependentUpon>frm_PhieuGiamGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_HangHoa.resx">
+      <DependentUpon>frm_HangHoa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
