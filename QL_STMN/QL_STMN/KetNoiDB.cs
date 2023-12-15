@@ -8,6 +8,6 @@ namespace QL_STMN
 {
     public class KetNoiDB
     {
-        public static string strconn = "Data Source=DELL1302\\SQLEXPRESS;Initial Catalog=SieuThiMini;Integrated Security=True";
+        public static string strconn = "Data Source=TONDZP;Initial Catalog=SieuThiMini;Integrated Security=True";
     }
 }

@@ -16,7 +16,7 @@ namespace QL_STMN
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_QLHoaDon());
+            Application.Run(new frm_Login());
         }
     }
 }
