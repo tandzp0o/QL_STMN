@@ -23,6 +23,7 @@ E:\CNPM\QL_ST\QL_STMN\QL_STMN\QL_STMN\obj\Debug\QL_STMN.csproj.GenerateResource.
 E:\CNPM\QL_ST\QL_STMN\QL_STMN\QL_STMN\obj\Debug\QL_STMN.csproj.CoreCompileInputs.cache
 E:\CNPM\QL_ST\QL_STMN\QL_STMN\QL_STMN\obj\Debug\QL_STMN.exe
 E:\CNPM\QL_ST\QL_STMN\QL_STMN\QL_STMN\obj\Debug\QL_STMN.pdb
-E:\CNPM\QL_ST\QL_STMN\QL_STMN\QL_STMN\obj\Debug\QL_STMN.frm_HoaDon.resources
 E:\CNPM\QL_ST\QL_STMN\QL_STMN\QL_STMN\obj\Debug\QL_STMN.frm_NhapHang.resources
 E:\CNPM\QL_ST\QL_STMN\QL_STMN\QL_STMN\obj\Debug\QL_STMN.frm_HangHoa.resources
+E:\CNPM\QL_ST\QL_STMN\QL_STMN\QL_STMN\obj\Debug\QL_STMN.Form_NhanVien.resources
+E:\CNPM\QL_ST\QL_STMN\QL_STMN\QL_STMN\obj\Debug\QL_STMN.frm_QLHoaDon.resources

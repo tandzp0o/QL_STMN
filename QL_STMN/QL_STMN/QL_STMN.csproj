@@ -45,11 +45,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="env.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_NhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_NhanVien.designer.cs">
+      <DependentUpon>Form_NhanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_QLHoaDon.cs">
       <SubType>Form</SubType>
@@ -112,8 +119,12 @@
       <DependentUpon>frm_HangHoa.cs</DependentUpon>
     </Compile>
     <Compile Include="KetNoiDB.cs" />
+    <Compile Include="NhanVienSTMN.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form_NhanVien.resx">
+      <DependentUpon>Form_NhanVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_QLHoaDon.resx">
       <DependentUpon>frm_QLHoaDon.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,6 +176,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\icons8-add-48.png" />
+    <Content Include="Resources\icons8-close-48.png" />
+    <Content Include="Resources\icons8-delete-48.png" />
+    <Content Include="Resources\icons8-edit-48.png" />
+    <Content Include="Resources\icons8-print-48.png" />
+    <Content Include="Resources\icons8-refresh-48.png" />
+    <Content Include="Resources\icons8-search-48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
