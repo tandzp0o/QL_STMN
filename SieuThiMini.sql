@@ -354,6 +354,103 @@ Begin
 	join inserted on dbo.HangHoa.MaHH = inserted.MaHH
 End
 GO
+
+--Function tính doanh thu theo tháng
+CREATE FUNCTION dbo.DoanhThuThang(@Thang INT)
+RETURNS FLOAT
+AS
+BEGIN
+    DECLARE @DoanhThu FLOAT;
+    SELECT @DoanhThu = SUM(TongTien)
+    FROM PhieuBanHang
+    WHERE MONTH(NgayBH) = @Thang and YEAR(NgayBH) = YEAR(GETDATE());
+    RETURN @DoanhThu;
+END;
+go
+
+--function trả về doanh thu theo từng tháng
+CREATE FUNCTION dbo.DoanhThu()
+RETURNS TABLE
+AS
+RETURN (
+    SELECT Thang, dbo.DoanhThuThang(Thang) AS DoanhThu
+    FROM (
+        VALUES (1), (2), (3), (4), (5), (6),
+               (7), (8), (9), (10), (11), (12)
+    ) AS Thang(Thang)
+);
+go
+
+--Function tính chi theo tháng
+CREATE FUNCTION dbo.ChiThang(@Thang INT)
+RETURNS FLOAT
+AS
+BEGIN
+    DECLARE @Chi FLOAT;
+    SELECT @Chi = SUM(TienNhapHang)
+    FROM PhieuNhapHang
+    WHERE MONTH(NgayNhap) = @Thang and YEAR(NgayNhap) = YEAR(GETDATE());
+    RETURN @Chi;
+END;
+go
+--function trả về chi theo từng tháng
+CREATE FUNCTION dbo.Chi()
+RETURNS TABLE
+AS
+RETURN (
+    SELECT Thang, dbo.ChiThang(Thang) AS Chi
+    FROM (
+        VALUES (1), (2), (3), (4), (5), (6),
+               (7), (8), (9), (10), (11), (12)
+    ) AS Thang(Thang)
+);
+go
+--function tính doanh thu theo ngày
+CREATE FUNCTION dbo.DoanhThuNgay(@NgayBatDau date, @NgayKetThuc date)
+RETURNS TABLE
+AS
+RETURN (
+    select format(convert(date, COALESCE(p.NgayNhap, h.GioBatDau)), 'dd-MM-yyyy') as Ngay, ISNULL(isnull(sum(TongTien), 0)-isnull(sum(TienNhapHang), 0), 0) as DoanhThu 
+	from PhieuBanHang h full join PhieuNhapHang p 
+	on h.NgayBH = p.NgayNhap
+	where (NgayBH >= @NgayBatDau and NgayBH <= @NgayKetThuc) or (ngaynhap >= @NgayBatDau and ngaynhap <= @NgayKetThuc)
+	group by convert(date, COALESCE(p.NgayNhap, h.GioBatDau))
+);
+go
+--function tính doanh thu theo quý
+CREATE FUNCTION dbo.DoanhThuQuy(@Quy int)
+RETURNS TABLE
+AS
+RETURN (
+    SELECT MONTH(COALESCE(NgayNhap, NgayBH)) as Thang, ISNULL(isnull(sum(tongtien), 0) - isnull(sum(thanhtien), 0), 0) AS DoanhThu
+	FROM PhieuBanHang full join PhieuNhapHang
+	on NgayNhap = NgayBH
+	WHERE YEAR(NgayBH) = year(getdate())
+	AND Datepart(QUARTER, NgayBH) = @Quy or Datepart(QUARTER, NgayNhap) = @Quy
+	group by MONTH(COALESCE(NgayNhap, NgayBH))
+);
+go
+--function TinhTongDoanhThuQuy
+CREATE FUNCTION dbo.TongDoanhThuQuy(@Quy int)
+RETURNS Float
+AS
+BEGIN
+    declare @Tong int = 0
+	select @Tong = sum(DoanhThu) from dbo.DoanhThuQuy(@Quy)
+	return @Tong;
+END
+go
+--function tính doanh thu theo các quý
+CREATE FUNCTION dbo.DoanhThuCacQuy()
+RETURNS TABLE
+AS
+RETURN (
+    SELECT Quy, dbo.TongDoanhThuQuy(Quy) AS DoanhThu
+    FROM (
+        VALUES (1), (2), (3), (4)
+    ) AS Quy(Quy)
+);
+go
 ------------------------------
 GO
 ALTER TABLE NhanVien
