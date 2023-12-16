@@ -43,7 +43,7 @@ namespace QL_STMN
                 string MaCV = dsnv.Find_MaCV(MaNV);
                 if(MaCV == "CV01") // quản lý
                 {
-                    Form1 f = new Form1();
+                    frm_TrangChu f = new frm_TrangChu();
                     txtTK.Text = string.Empty;
                     txtMK.Text = string.Empty;
                     this.Hide();
