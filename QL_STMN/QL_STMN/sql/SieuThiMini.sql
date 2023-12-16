@@ -359,7 +359,117 @@ Begin
 	join inserted on dbo.HangHoa.MaHH = inserted.MaHH
 End
 GO
------------------------------------------------------
+
+--Function tính doanh thu theo tháng
+CREATE FUNCTION dbo.DoanhThuThang(@Thang INT)
+RETURNS FLOAT
+AS
+BEGIN
+    DECLARE @DoanhThu FLOAT;
+    SELECT @DoanhThu = SUM(TongTien)
+    FROM PhieuBanHang
+    WHERE MONTH(NgayBH) = @Thang and YEAR(NgayBH) = YEAR(GETDATE());
+    RETURN @DoanhThu;
+END;
+go
+
+--function trả về doanh thu theo từng tháng
+CREATE FUNCTION dbo.DoanhThu()
+RETURNS TABLE
+AS
+RETURN (
+    SELECT Thang, dbo.DoanhThuThang(Thang) AS DoanhThu
+    FROM (
+        VALUES (1), (2), (3), (4), (5), (6),
+               (7), (8), (9), (10), (11), (12)
+    ) AS Thang(Thang)
+);
+go
+
+--Function tính chi theo tháng
+CREATE FUNCTION dbo.ChiThang(@Thang INT)
+RETURNS FLOAT
+AS
+BEGIN
+    DECLARE @Chi FLOAT;
+    SELECT @Chi = SUM(TienNhapHang)
+    FROM PhieuNhapHang
+    WHERE MONTH(NgayNhap) = @Thang and YEAR(NgayNhap) = YEAR(GETDATE());
+    RETURN @Chi;
+END;
+go
+--function trả về chi theo từng tháng
+CREATE FUNCTION dbo.Chi()
+RETURNS TABLE
+AS
+RETURN (
+    SELECT Thang, dbo.ChiThang(Thang) AS Chi
+    FROM (
+        VALUES (1), (2), (3), (4), (5), (6),
+               (7), (8), (9), (10), (11), (12)
+    ) AS Thang(Thang)
+);
+go
+--function tính doanh thu theo ngày
+CREATE FUNCTION dbo.DoanhThuNgay(@Ngay DATE)
+RETURNS TABLE
+AS
+RETURN 
+(
+    SELECT
+        PBH.MaBanHang,
+        PBH.NgayBH,
+        PBH.TongTien
+    FROM
+        PhieuBanHang PBH
+    WHERE
+        CONVERT(DATE, PBH.NgayBH) = @Ngay
+);
+go
+
+--function tính doanh thu theo quý
+CREATE FUNCTION dbo.DoanhThuQuy(@Quy int)
+RETURNS TABLE
+AS
+RETURN (
+   SELECT
+        PBH.MaBanHang,
+        PBH.NgayBH,
+        PBH.TongTien
+    FROM
+        PhieuBanHang PBH
+	WHERE YEAR(NgayBH) = year(getdate())
+	AND Datepart(QUARTER, NgayBH) = @Quy
+);
+go
+	
+--function TinhTongDoanhThuQuy
+CREATE FUNCTION dbo.TongDoanhThuQuy(@Quy int)
+RETURNS Float
+AS
+BEGIN
+    declare @Tong int = 0
+	select @Tong = sum(PBH.TongTien) from PhieuBanHang PBH
+	WHERE YEAR(NgayBH) = year(getdate())
+    AND DATEPART(QUARTER, PBH.NgayBH) = @Quy;
+
+    RETURN ISNULL(@Tong, 0);
+END
+go
+--function tính doanh thu theo các quý
+CREATE FUNCTION dbo.DoanhThuCacQuy()
+RETURNS TABLE
+AS
+RETURN (
+    SELECT Quy, dbo.TongDoanhThuQuy(Quy) AS DoanhThu
+    FROM (
+        VALUES (1), (2), (3), (4)
+    ) AS Quy(Quy)
+);
+go
+
+------------------------------
+------------------------------
 GO
 ALTER TABLE NhanVien
 ADD CONSTRAINT CK_GioiTinh CHECK (GioiTinh IN (N'Nam', N'Nữ'));
@@ -376,6 +486,9 @@ GO
 ALTER TABLE dbo.PhieuBanHang
 ADD CONSTRAINT DF_GhiChu DEFAULT ('Chưa có ghi chú') FOR GhiChu;
 GO
+------------------------------
+------------------------------
+
 --Ràng buộc kiểm tra số lượng hàng hóa--Nhập liệu
 -- Dữ liệu cho bảng ChucVu
 INSERT INTO ChucVu (MaCV, TenCV)
