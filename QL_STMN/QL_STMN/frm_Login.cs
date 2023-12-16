@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using QL_STMN.Properties;
-using Nhom1_QuanLySieuThiMini;
+using QL_STMN;
 
 
 namespace QL_STMN

@@ -2,6 +2,7 @@
 GO
 USE SieuThiMini
 GO
+--USE master
 --DROP DATABASE SieuThiMini
 
 --	Bảng tài khoản																	
@@ -353,7 +354,24 @@ Begin
 	join inserted on dbo.HangHoa.MaHH = inserted.MaHH
 End
 GO
-
+------------------------------
+GO
+ALTER TABLE NhanVien
+ADD CONSTRAINT CK_GioiTinh CHECK (GioiTinh IN (N'Nam', N'Nữ'));
+GO
+-- kt MaHH không được phép null
+ALTER TABLE dbo.ChiTietBanHang
+ALTER COLUMN MaHH VARCHAR(10) NOT NULL;
+GO
+--Kiểm tra tài khoản là duy nhất
+ALTER TABLE dbo.TaiKhoan
+ADD CONSTRAINT UQ_TaiKhoan UNIQUE (TaiKhoan);
+GO
+-- Ghi chú của phiếu bán mặc dịnh
+ALTER TABLE dbo.PhieuBanHang
+ADD CONSTRAINT DF_GhiChu DEFAULT ('Chưa có ghi chú') FOR GhiChu;
+GO
+---------------------------------
 --Nhập liệu
 -- Dữ liệu cho bảng ChucVu
 INSERT INTO ChucVu (MaCV, TenCV)

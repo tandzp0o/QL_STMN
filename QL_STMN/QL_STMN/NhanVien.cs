@@ -1,21 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Data;
-using System.Data.SqlClient;
-using QL_STMN;
 
-namespace Nhom1_QuanLySieuThiMini
+namespace QL_STMN
 {
     public class NhanVien
     {
-        public string maNV {  get; set; }
+        public string maNV { get; set; }
         public string tenNV { get; set; }
         public string gioiTinh { get; set; }
         public string namSinh { get; set; }
