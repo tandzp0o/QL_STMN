@@ -494,10 +494,7 @@ GO
 INSERT INTO ChucVu (MaCV, TenCV)
 VALUES
     ('CV01', N'Quản lý'),
-    ('CV02', N'Nhân viên bán hàng'),
-    ('CV03', N'Kế toán'),
-    ('CV04', N'Nhân viên kho'),
-    ('CV05', N'Giao hàng');
+    ('CV02', N'Nhân viên bán hàng');
 GO
 
 -- Dữ liệu cho bảng NhanVien
