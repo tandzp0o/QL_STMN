@@ -19,7 +19,7 @@ namespace QL_STMN
 
         private void mn_thongtin_Click(object sender, EventArgs e)
         {
-            String tt = "Phần mềm : Quản lý Siêu thị  \n\nNhóm 1:\n\t\n\n\t\tGVHD: Ths.Vũ Văn Vinh\n";
+            String tt = "Phần mềm : Quản lý Siêu thị  \n\nNhóm 8:\n\t\n\n\t\tGVHD: Nguyễn Thị Bích Ngân\n";
             MessageBox.Show((tt), "Thông tin", MessageBoxButtons.OK);
         }
 
@@ -34,9 +34,6 @@ namespace QL_STMN
             }
         }
 
-
-
-     
         int x = 166, y =0 , a = 1;
 
         private void quảnLíLoạiHàngHóaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -90,7 +87,7 @@ namespace QL_STMN
 
         private void nhậpHàngToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frm_LoaiHangHoa frmNhapHang = new frm_LoaiHangHoa();
+            frm_NhapHang frmNhapHang = new frm_NhapHang();
      
             frmNhapHang.Show();
         }
@@ -112,6 +109,12 @@ namespace QL_STMN
             frmNV.Show();
         }
 
+        private void quảnLíNhàCungCấpToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            frm_NhaCungCap frmNCC = new frm_NhaCungCap();
+            frmNCC.Show();
+        }
+
         private void frmTrangChu_Load(object sender, EventArgs e)
         {
 
@@ -119,7 +122,8 @@ namespace QL_STMN
 
         private void thốngKêToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            frm_ThongKeDoanhThu frmDoanhThu = new frm_ThongKeDoanhThu();
+            frmDoanhThu.Show();
         }
     }
 }

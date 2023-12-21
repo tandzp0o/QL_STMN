@@ -181,6 +181,7 @@ namespace QL_STMN
             this.quảnLíNhàCungCấpToolStripMenuItem.Name = "quảnLíNhàCungCấpToolStripMenuItem";
             this.quảnLíNhàCungCấpToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
             this.quảnLíNhàCungCấpToolStripMenuItem.Text = "- Quản lí nhà cung cấp";
+            this.quảnLíNhàCungCấpToolStripMenuItem.Click += new System.EventHandler(this.quảnLíNhàCungCấpToolStripMenuItem_Click_1);
             // 
             // quảnLíNhânViênToolStripMenuItem
             // 

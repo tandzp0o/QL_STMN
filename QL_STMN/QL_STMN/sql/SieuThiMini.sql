@@ -817,7 +817,7 @@ INSERT INTO PhieuBanHang (MaBanHang, MaNV, MaPGG, MaKH, NgayBH, GhiChu)
 --Tổng tiền bán hàng sẽ tự động cập nhật bằng triger
 VALUES 
 --	('PBH004', 'NV004', 'PGG004', 'KH004', '2023-04-25 14:20:00', N'Bán hàng tháng 4'),
-	('PBH005', 'NV005', NULL, NULL, '2023-05-30 13:00:00', N'Bán hàng tháng 5'),
+--	('PBH005', 'NV005', NULL, NULL, '2023-05-30 13:00:00', N'Bán hàng tháng 5'),
     ('PBH001', 'NV001', NULL, NULL, '2023-01-10 10:30:00', N'Bán hàng tháng 1' ),
     ('PBH002', 'NV002', NULL,NULL, '2023-02-15 09:45:00', N'Bán hàng tháng 2'),
     ('PBH003', 'NV003', NULL, NULL, '2023-03-20 11:15:00', N'Bán hàng tháng 3'),
