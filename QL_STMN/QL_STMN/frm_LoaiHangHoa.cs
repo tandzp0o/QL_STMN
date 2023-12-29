@@ -24,7 +24,7 @@ namespace QL_STMN
         }
         private void loadLoaiHH()
         {
-            adap = new SqlDataAdapter("Select *from LoaiHangHoa", conn);
+            adap = new SqlDataAdapter("Select MaLoaiHH as N'Mã loại hàng', TenLoaiHH as N'Tên loại hàng' from LoaiHangHoa", conn);
             adap.Fill(loaiHH);
 
             DataColumn[] key = new DataColumn[1];
@@ -41,8 +41,8 @@ namespace QL_STMN
         }
         private void Bingdings()
         {
-            txtMaLoaiHH.DataBindings.Add("Text", dgvLoaiHH.DataSource, "MaLoaiHH");
-            txtTenLoaiHH.DataBindings.Add("Text", dgvLoaiHH.DataSource, "TenLoaiHH");
+            txtMaLoaiHH.DataBindings.Add("Text", dgvLoaiHH.DataSource, "Mã loại hàng");
+            txtTenLoaiHH.DataBindings.Add("Text", dgvLoaiHH.DataSource, "Tên loại hàng");
         }
 
         private void btnTroVe_Click(object sender, EventArgs e)
@@ -67,11 +67,11 @@ namespace QL_STMN
         }
         private void themLoaiHH()
         {
-            adap = new SqlDataAdapter("Select *from LoaiHangHoa", conn);
+            adap = new SqlDataAdapter("Select MaLoaiHH as N'Mã loại hàng', TenLoaiHH as N'Tên loại hàng' from LoaiHangHoa", conn);
             DataRow newRow = loaiHH.NewRow();
 
-            newRow["MaLoaiHH"] = txtMaLoaiHH.Text;
-            newRow["TenLoaiHH"] = txtTenLoaiHH.Text;
+            newRow["Mã loại hàng"] = txtMaLoaiHH.Text;
+            newRow["Tên loại hàng"] = txtTenLoaiHH.Text;
             loaiHH.Rows.Add(newRow);
 
             SqlCommandBuilder builder = new SqlCommandBuilder(adap);
@@ -99,7 +99,7 @@ namespace QL_STMN
                     MessageBox.Show("Loại hàng hóa này đang được sử dụng không thể xóa !!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                adap = new SqlDataAdapter("Select *from LoaiHangHoa", conn);
+                adap = new SqlDataAdapter("Select MaLoaiHH as N'Mã loại hàng', TenLoaiHH as N'Tên loại hàng' from LoaiHangHoa", conn);
                 DataRow deleteRow = loaiHH.Rows.Find(txtMaLoaiHH.Text);
                 if (deleteRow != null)
                     deleteRow.Delete();
@@ -118,12 +118,12 @@ namespace QL_STMN
         }
         private void suaLoaiHH()
         {
-            adap = new SqlDataAdapter("Select *from LoaiHangHoa", conn);
+            adap = new SqlDataAdapter("Select MaLoaiHH as N'Mã loại hàng', TenLoaiHH as N'Tên loại hàng' from LoaiHangHoa", conn);
             DataRow updateRow = loaiHH.Rows.Find(txtMaLoaiHH.Text);
             if (updateRow != null)
             {
                 updateRow.BeginEdit();
-                updateRow["TenLoaiHH"] = txtTenLoaiHH.Text;
+                updateRow["Tên loại hàng"] = txtTenLoaiHH.Text;
                 updateRow.EndEdit();
             }
             else
@@ -144,7 +144,10 @@ namespace QL_STMN
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            themLoaiHH();
+            if(isDuplicatePriKey(txtMaLoaiHH.Text))
+                MessageBox.Show("Trùng mã loại hàng hóa !!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+                themLoaiHH();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)

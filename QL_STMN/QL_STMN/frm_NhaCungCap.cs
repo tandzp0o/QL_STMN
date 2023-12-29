@@ -24,7 +24,7 @@ namespace QL_STMN
         }
         private void loadNCC()
         {
-            adap = new SqlDataAdapter("Select *from NhaCungCap", conn);
+            adap = new SqlDataAdapter("Select MaNCC as N'Mã nhà cung cấp', TenNCC as N'Tên nhà cung cấp', DiaChi_NCC as N'Địa chỉ nhà cung cấp' from NhaCungCap", conn);
             adap.Fill(NCC);
 
             DataColumn[] key = new DataColumn[1];
@@ -41,9 +41,9 @@ namespace QL_STMN
         }
         private void Bingdings()
         {
-            txtMaNCC.DataBindings.Add("Text", dgvNCC.DataSource, "MaNCC");
-            txtTenNCC.DataBindings.Add("Text", dgvNCC.DataSource, "TenNCC");
-            txtDiaChiNCC.DataBindings.Add("Text", dgvNCC.DataSource, "DiaChi_NCC");
+            txtMaNCC.DataBindings.Add("Text", dgvNCC.DataSource, "Mã nhà cung cấp");
+            txtTenNCC.DataBindings.Add("Text", dgvNCC.DataSource, "Tên nhà cung cấp");
+            txtDiaChiNCC.DataBindings.Add("Text", dgvNCC.DataSource, "Địa chỉ nhà cung cấp");
         }
 
         private void btnTroVe_Click(object sender, EventArgs e)
@@ -67,12 +67,12 @@ namespace QL_STMN
         }
         private void themNCC()
         {
-            adap = new SqlDataAdapter("Select *from NhaCungCap", conn);
+            adap = new SqlDataAdapter("Select MaNCC as N'Mã nhà cung cấp', TenNCC as N'Tên nhà cung cấp', DiaChi_NCC as N'Địa chỉ nhà cung cấp' from NhaCungCap", conn);
             DataRow newRow = NCC.NewRow();
 
-            newRow["MaNCC"] = txtMaNCC.Text;
-            newRow["TenNCC"] = txtTenNCC.Text;
-            newRow["DiaChi_NCC"] = txtDiaChiNCC.Text;
+            newRow["Mã nhà cung cấp"] = txtMaNCC.Text;
+            newRow["Tên nhà cung cấp"] = txtTenNCC.Text;
+            newRow["Địa chỉ nhà cung cấp"] = txtDiaChiNCC.Text;
             NCC.Rows.Add(newRow);
 
             SqlCommandBuilder builder = new SqlCommandBuilder(adap);
@@ -100,7 +100,7 @@ namespace QL_STMN
                     MessageBox.Show("Nhà cung cấp này đang được sử dụng không thể xóa !!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                adap = new SqlDataAdapter("Select *from NhaCungCap", conn);
+                adap = new SqlDataAdapter("Select MaNCC as N'Mã nhà cung cấp', TenNCC as N'Tên nhà cung cấp', DiaChi_NCC as N'Địa chỉ nhà cung cấp' from NhaCungCap", conn);
                 DataRow deleteRow = NCC.Rows.Find(txtMaNCC.Text);
                 if (deleteRow != null)
                     deleteRow.Delete();
@@ -116,13 +116,13 @@ namespace QL_STMN
         }
         private void suaNCC()
         {
-            adap = new SqlDataAdapter("Select *from NhaCungCap", conn);
+            adap = new SqlDataAdapter("Select MaNCC as N'Mã nhà cung cấp', TenNCC as N'Tên nhà cung cấp', DiaChi_NCC as N'Địa chỉ nhà cung cấp' from NhaCungCap", conn);
             DataRow updateRow = NCC.Rows.Find(txtMaNCC.Text);
             if (updateRow != null)
             {
                 updateRow.BeginEdit();
-                updateRow["TenNCC"] = txtTenNCC.Text;
-                updateRow["DiaChi_NCC"] = txtDiaChiNCC.Text;
+                updateRow["Tên nhà cung cấp"] = txtTenNCC.Text;
+                updateRow["Địa chỉ nhà cung cấp"] = txtDiaChiNCC.Text;
                 updateRow.EndEdit();
             }
             else
@@ -143,7 +143,10 @@ namespace QL_STMN
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            themNCC();
+            if (isDuplicatePriKey(txtMaNCC.Text))
+                MessageBox.Show("Trùng mã nhad cung cấp !!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+                themNCC();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)

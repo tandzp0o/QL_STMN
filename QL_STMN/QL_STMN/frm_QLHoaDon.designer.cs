@@ -91,11 +91,10 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.BackColor = System.Drawing.Color.LightBlue;
+            this.btnThoat.BackColor = System.Drawing.SystemColors.Control;
             this.btnThoat.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnThoat.FlatAppearance.BorderColor = System.Drawing.Color.DarkCyan;
             this.btnThoat.FlatAppearance.BorderSize = 0;
-            this.btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThoat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoat.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -110,11 +109,10 @@
             // 
             // btnLamMoi
             // 
-            this.btnLamMoi.BackColor = System.Drawing.Color.LightBlue;
+            this.btnLamMoi.BackColor = System.Drawing.SystemColors.Control;
             this.btnLamMoi.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnLamMoi.FlatAppearance.BorderColor = System.Drawing.Color.DarkCyan;
             this.btnLamMoi.FlatAppearance.BorderSize = 0;
-            this.btnLamMoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLamMoi.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLamMoi.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnLamMoi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -129,11 +127,10 @@
             // 
             // btnChiTietHoaDon
             // 
-            this.btnChiTietHoaDon.BackColor = System.Drawing.Color.LightBlue;
+            this.btnChiTietHoaDon.BackColor = System.Drawing.SystemColors.Control;
             this.btnChiTietHoaDon.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnChiTietHoaDon.FlatAppearance.BorderColor = System.Drawing.Color.DarkCyan;
             this.btnChiTietHoaDon.FlatAppearance.BorderSize = 0;
-            this.btnChiTietHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChiTietHoaDon.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChiTietHoaDon.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnChiTietHoaDon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -184,8 +181,7 @@
             // 
             // btnThongKe
             // 
-            this.btnThongKe.BackColor = System.Drawing.Color.LightBlue;
-            this.btnThongKe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThongKe.BackColor = System.Drawing.SystemColors.Control;
             this.btnThongKe.Location = new System.Drawing.Point(714, 91);
             this.btnThongKe.Name = "btnThongKe";
             this.btnThongKe.Size = new System.Drawing.Size(251, 86);

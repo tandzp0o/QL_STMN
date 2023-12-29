@@ -43,7 +43,7 @@ namespace QL_STMN
                 string MaCV = dsnv.Find_MaCV(MaNV);
                 if(MaCV == "CV01") // quản lý
                 {
-                    frm_TrangChu f = new frm_TrangChu();
+                    frm_TrangChu f = new frm_TrangChu(tk);
                     txtTK.Text = string.Empty;
                     txtMK.Text = string.Empty;
                     this.Hide();
@@ -52,7 +52,7 @@ namespace QL_STMN
                 }    
                 else if(MaCV == "CV02") // nv bán hàng
                 {
-                    frm_BanHang f = new frm_BanHang();
+                    frm_BanHang f = new frm_BanHang(tk);
                     txtTK.Text = string.Empty;
                     txtMK.Text = string.Empty;
                     this.Hide();
@@ -61,7 +61,7 @@ namespace QL_STMN
                 }
                 else if (MaCV == "CV03") // nv kế toán
                 {
-                    frm_BanHang f = new frm_BanHang();
+                    frm_BanHang f = new frm_BanHang(tk);
                     txtTK.Text = string.Empty;
                     txtMK.Text = string.Empty;
                     this.Hide();
@@ -70,7 +70,7 @@ namespace QL_STMN
                 }
                 else if (MaCV == "CV04") // nv kho
                 {
-                    frm_BanHang f = new frm_BanHang();
+                    frm_BanHang f = new frm_BanHang(tk);
                     txtTK.Text = string.Empty;
                     txtMK.Text = string.Empty;
                     this.Hide();

@@ -71,7 +71,7 @@ namespace QL_STMN
         }
         private void loadHangHoa()
         {
-            adap = new SqlDataAdapter("Select *from HangHoa", conn);
+            adap = new SqlDataAdapter("Select MaHH as N'Mã hàng hóa', TenHH as N'Tên hàng hóa', DVT, GiaNhap as N'Giá nhập', GiaBan as N'Giá bán', SoLuong as N'Số lượng', MaloaiHH as N'Mã loại', MaNCC as N'Mã nhà cung cấp' from HangHoa", conn);
             adap.Fill(ds_HangHoa, "HH");
 
             DataColumn[] key = new DataColumn[1];
@@ -94,21 +94,21 @@ namespace QL_STMN
         private void Bingdings()
         {
             txtMaHH.DataBindings.Clear();
-            txtMaHH.DataBindings.Add("Text", dgvHangHoa.DataSource, "MaHH");
+            txtMaHH.DataBindings.Add("Text", dgvHangHoa.DataSource, "Mã hàng hóa");
             txtTenHH.DataBindings.Clear();
-            txtTenHH.DataBindings.Add("Text", dgvHangHoa.DataSource, "TenHH");
+            txtTenHH.DataBindings.Add("Text", dgvHangHoa.DataSource, "Tên hàng hóa");
             txtDVT.DataBindings.Clear();
             txtDVT.DataBindings.Add("Text", dgvHangHoa.DataSource, "DVT");
             txtGiaNhap.DataBindings.Clear();
-            txtGiaNhap.DataBindings.Add("Text", dgvHangHoa.DataSource, "GiaNhap");
+            txtGiaNhap.DataBindings.Add("Text", dgvHangHoa.DataSource, "Giá nhập");
             txtGiaBan.DataBindings.Clear();
-            txtGiaBan.DataBindings.Add("Text", dgvHangHoa.DataSource, "GiaBan");
+            txtGiaBan.DataBindings.Add("Text", dgvHangHoa.DataSource, "Giá bán");
             txtSLuong.DataBindings.Clear();
-            txtSLuong.DataBindings.Add("Text", dgvHangHoa.DataSource, "SoLuong");
+            txtSLuong.DataBindings.Add("Text", dgvHangHoa.DataSource, "Số lượng");
             cboLoaiHH.DataBindings.Clear();
-            cboLoaiHH.DataBindings.Add("SelectedValue", dgvHangHoa.DataSource,"MaLoaiHH");
+            cboLoaiHH.DataBindings.Add("SelectedValue", dgvHangHoa.DataSource,"Mã loại");
             cboNCC.DataBindings.Clear();
-            cboNCC.DataBindings.Add("SelectedValue", dgvHangHoa.DataSource, "MaNCC");
+            cboNCC.DataBindings.Add("SelectedValue", dgvHangHoa.DataSource, "Mã nhà cung cấp");
         }
         private void frm_QLHangHoa_Load(object sender, EventArgs e)
         {
@@ -146,17 +146,17 @@ namespace QL_STMN
 
         private void themHangHoa()
         {
-            adap = new SqlDataAdapter("Select *from HangHoa", conn);
+            adap = new SqlDataAdapter("Select MaHH as N'Mã hàng hóa', TenHH as N'Tên hàng hóa', DVT, GiaNhap as N'Giá nhập', GiaBan as N'Giá bán', SoLuong as N'Số lượng', MaloaiHH as N'Mã loại', MaNCC as N'Mã nhà cung cấp' from HangHoa", conn);
             DataRow newRow = ds_HangHoa.Tables["HH"].NewRow();
 
-            newRow["MaHH"] = txtMaHH.Text;
-            newRow["TenHH"] = txtTenHH.Text;
+            newRow["Mã hàng hóa"] = txtMaHH.Text;
+            newRow["Tên hàng hóa"] = txtTenHH.Text;
             newRow["DVT"] = txtDVT.Text;
-            newRow["GiaNhap"] = txtGiaNhap.Text;
-            newRow["GiaBan"] = txtGiaBan.Text;
-            newRow["SoLuong"] = txtSLuong.Text;
-            newRow["MaloaiHH"] = cboLoaiHH.SelectedValue.ToString();
-            newRow["MaNCC"] = cboNCC.SelectedValue.ToString();
+            newRow["Giá nhập"] = txtGiaNhap.Text;
+            newRow["Giá bán"] = txtGiaBan.Text;
+            newRow["Số lượng"] = txtSLuong.Text;
+            newRow["Mã loại"] = cboLoaiHH.SelectedValue.ToString();
+            newRow["Mã nhà cung cấp"] = cboNCC.SelectedValue.ToString();
             ds_HangHoa.Tables["HH"].Rows.Add(newRow);
 
             SqlCommandBuilder builder = new SqlCommandBuilder(adap);
@@ -176,7 +176,7 @@ namespace QL_STMN
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                adap = new SqlDataAdapter("Select *from HangHoa", conn);
+                adap = new SqlDataAdapter("Select MaHH as N'Mã hàng hóa', TenHH as N'Tên hàng hóa', DVT, GiaNhap as N'Giá nhập', GiaBan as N'Giá bán', SoLuong as N'Số lượng', MaloaiHH as N'Mã loại', MaNCC as N'Mã nhà cung cấp' from HangHoa", conn);
                 DataRow deleteRow = ds_HangHoa.Tables["HH"].Rows.Find(txtMaHH.Text);
                 if (deleteRow != null)
                     deleteRow.Delete();
@@ -195,18 +195,18 @@ namespace QL_STMN
         }
         private void suaHangHoa()
         {
-            adap = new SqlDataAdapter("Select *from HangHoa", conn);
+            adap = new SqlDataAdapter("Select MaHH as N'Mã hàng hóa', TenHH as N'Tên hàng hóa', DVT, GiaNhap as N'Giá nhập', GiaBan as N'Giá bán', SoLuong as N'Số lượng', MaloaiHH as N'Mã loại', MaNCC as N'Mã nhà cung cấp' from HangHoa", conn);
             DataRow updateRow = ds_HangHoa.Tables["HH"].Rows.Find(txtMaHH.Text);
             if (updateRow != null)
             {
                 updateRow.BeginEdit();
-                updateRow["TenHH"] = txtTenHH.Text;
+                updateRow["Tên hàng hóa"] = txtTenHH.Text;
                 updateRow["DVT"] = txtDVT.Text;
-                updateRow["GiaNhap"] = txtGiaNhap.Text;
-                updateRow["GiaBan"] = txtGiaBan.Text;
-                updateRow["SoLuong"] = txtSLuong.Text;
-                updateRow["MaloaiHH"] = cboLoaiHH.SelectedValue.ToString();
-                updateRow["MaNCC"] = cboNCC.SelectedValue.ToString();
+                updateRow["Giá nhập"] = txtGiaNhap.Text;
+                updateRow["Giá bán"] = txtGiaBan.Text;
+                updateRow["Số lượng"] = txtSLuong.Text;
+                updateRow["Mã loại"] = cboLoaiHH.SelectedValue.ToString();
+                updateRow["Mã nhà cung cấp"] = cboNCC.SelectedValue.ToString();
                 updateRow.EndEdit();
             }
             else
@@ -255,22 +255,22 @@ namespace QL_STMN
             {
                 if (x != 0 && y != 0)
                 {
-                    adap = new SqlDataAdapter("Select *from HangHoa where TenHH like N'%" + txtTimTen.Text + "%' and MaloaiHH = '" + cboTimLoaiHH.SelectedValue + "' and MaNCC = '" + cboTimNCC.SelectedValue + "'", conn);
+                    adap = new SqlDataAdapter("Select MaHH as N'Mã hàng hóa', TenHH as N'Tên hàng hóa', DVT, GiaNhap as N'Giá nhập', GiaBan as N'Giá bán', SoLuong as N'Số lượng', MaloaiHH as N'Mã loại', MaNCC as N'Mã nhà cung cấp' from HangHoa where TenHH like N'%" + txtTimTen.Text + "%' and MaloaiHH = '" + cboTimLoaiHH.SelectedValue + "' and MaNCC = '" + cboTimNCC.SelectedValue + "'", conn);
                     adap.Fill(dt);
                 }
                 else if (x != 0)
                 {
-                    adap = new SqlDataAdapter("Select *from HangHoa where TenHH like N'%" + txtTimTen.Text + "%' and MaloaiHH = '" + cboTimLoaiHH.SelectedValue + "'", conn);
+                    adap = new SqlDataAdapter("Select MaHH as N'Mã hàng hóa', TenHH as N'Tên hàng hóa', DVT, GiaNhap as N'Giá nhập', GiaBan as N'Giá bán', SoLuong as N'Số lượng', MaloaiHH as N'Mã loại', MaNCC as N'Mã nhà cung cấp' from HangHoa where TenHH like N'%" + txtTimTen.Text + "%' and MaloaiHH = '" + cboTimLoaiHH.SelectedValue + "'", conn);
                     adap.Fill(dt);
                 }
                 else if (y != 0)
                 {
-                    adap = new SqlDataAdapter("Select *from HangHoa where TenHH like N'%" + txtTimTen.Text + "%' and MaNCC = '" + cboTimNCC.SelectedValue + "'", conn);
+                    adap = new SqlDataAdapter("Select MaHH as N'Mã hàng hóa', TenHH as N'Tên hàng hóa', DVT, GiaNhap as N'Giá nhập', GiaBan as N'Giá bán', SoLuong as N'Số lượng', MaloaiHH as N'Mã loại', MaNCC as N'Mã nhà cung cấp' from HangHoa where TenHH like N'%" + txtTimTen.Text + "%' and MaNCC = '" + cboTimNCC.SelectedValue + "'", conn);
                     adap.Fill(dt);
                 }
                 else
                 {
-                    adap = new SqlDataAdapter("Select *from HangHoa where TenHH like N'%" + txtTimTen.Text + "%'", conn);
+                    adap = new SqlDataAdapter("Select MaHH as N'Mã hàng hóa', TenHH as N'Tên hàng hóa', DVT, GiaNhap as N'Giá nhập', GiaBan as N'Giá bán', SoLuong as N'Số lượng', MaloaiHH as N'Mã loại', MaNCC as N'Mã nhà cung cấp' from HangHoa where TenHH like N'%" + txtTimTen.Text + "%'", conn);
                     adap.Fill(dt);
                 }
                 dgvHangHoa.DataSource = dt;
@@ -279,17 +279,17 @@ namespace QL_STMN
             {
                 if (x != 0 && y != 0)
                 {
-                    adap = new SqlDataAdapter("Select *from HangHoa where MaloaiHH = '" + cboTimLoaiHH.SelectedValue + "' and MaNCC = '" + cboTimNCC.SelectedValue + "'", conn);
+                    adap = new SqlDataAdapter("Select MaHH as N'Mã hàng hóa', TenHH as N'Tên hàng hóa', DVT, GiaNhap as N'Giá nhập', GiaBan as N'Giá bán', SoLuong as N'Số lượng', MaloaiHH as N'Mã loại', MaNCC as N'Mã nhà cung cấp' from HangHoa where MaloaiHH = '" + cboTimLoaiHH.SelectedValue + "' and MaNCC = '" + cboTimNCC.SelectedValue + "'", conn);
                     adap.Fill(dt);
                 }
                 else if (x != 0)
                 {
-                    adap = new SqlDataAdapter("Select *from HangHoa where MaloaiHH = '" + cboTimLoaiHH.SelectedValue + "'", conn);
+                    adap = new SqlDataAdapter("Select MaHH as N'Mã hàng hóa', TenHH as N'Tên hàng hóa', DVT, GiaNhap as N'Giá nhập', GiaBan as N'Giá bán', SoLuong as N'Số lượng', MaloaiHH as N'Mã loại', MaNCC as N'Mã nhà cung cấp' from HangHoa where MaloaiHH = '" + cboTimLoaiHH.SelectedValue + "'", conn);
                     adap.Fill(dt);
                 }
                 else if (y != 0)
                 {
-                    adap = new SqlDataAdapter("Select *from HangHoa where MaNCC = '" + cboTimNCC.SelectedValue + "'", conn);
+                    adap = new SqlDataAdapter("Select MaHH as N'Mã hàng hóa', TenHH as N'Tên hàng hóa', DVT, GiaNhap as N'Giá nhập', GiaBan as N'Giá bán', SoLuong as N'Số lượng', MaloaiHH as N'Mã loại', MaNCC as N'Mã nhà cung cấp' from HangHoa where MaNCC = '" + cboTimNCC.SelectedValue + "'", conn);
                     adap.Fill(dt);
                 }
                 else

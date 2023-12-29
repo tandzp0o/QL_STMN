@@ -24,7 +24,7 @@ namespace QL_STMN
         }
         private void loadPGG()
         {
-            adap = new SqlDataAdapter("Select *from PhieuGiamGia", conn);
+            adap = new SqlDataAdapter("Select MaPGG as N'Mã phiếu giảm', TenPGG as N'Tên phiếu giảm', NgayBD as N'Ngày bắt đầu', NgayKT as N'Ngày kết thúc', GiaTriGG as N'Giá trị giảm (%)', GhiChu as N'Ghi chú' from PhieuGiamGia", conn);
             adap.Fill(PGG);
 
             DataColumn[] key = new DataColumn[1];
@@ -41,12 +41,12 @@ namespace QL_STMN
         }
         private void Bingdings()
         {
-            txtMaPGG.DataBindings.Add("Text", dgvPGG.DataSource, "MaPGG");
-            txtTenPGG.DataBindings.Add("Text", dgvPGG.DataSource, "TenPGG");
-            txtNgayBD1.DataBindings.Add("Text", dgvPGG.DataSource, "NgayBD");
-            txtNgayKT.DataBindings.Add("Text", dgvPGG.DataSource, "NgayKT");
-            txtGiaTriGG.DataBindings.Add("Text", dgvPGG.DataSource, "GiaTriGG");
-            txtGhiChu.DataBindings.Add("Text", dgvPGG.DataSource, "GhiChu");
+            txtMaPGG.DataBindings.Add("Text", dgvPGG.DataSource, "Mã phiếu giảm");
+            txtTenPGG.DataBindings.Add("Text", dgvPGG.DataSource, "Tên phiếu giảm");
+            txtNgayBD1.DataBindings.Add("Text", dgvPGG.DataSource, "Ngày bắt đầu");
+            txtNgayKT.DataBindings.Add("Text", dgvPGG.DataSource, "Ngày kết thúc");
+            txtGiaTriGG.DataBindings.Add("Text", dgvPGG.DataSource, "Giá trị giảm (%)");
+            txtGhiChu.DataBindings.Add("Text", dgvPGG.DataSource, "Ghi chú");
         }
 
         private void btnTroVe_Click(object sender, EventArgs e)
@@ -70,15 +70,15 @@ namespace QL_STMN
         }
         private void themPGG()
         {
-            adap = new SqlDataAdapter("Select *from PhieuGiamGia", conn);
+            adap = new SqlDataAdapter("Select MaPGG as N'Mã phiếu giảm', TenPGG as N'Tên phiếu giảm', NgayBD as N'Ngày bắt đầu', NgayKT as N'Ngày kết thúc', GiaTriGG as N'Giá trị giảm (%)', GhiChu as N'Ghi chú' from PhieuGiamGia", conn);
             DataRow newRow = PGG.NewRow();
 
-            newRow["MaPGG"] = txtMaPGG.Text;
-            newRow["TenPGG"] = txtTenPGG.Text;
-            newRow["NgayBD"] = txtNgayBD1.Text;
-            newRow["NgayKT"] = txtNgayKT.Text;
-            newRow["GiaTriGG"] = txtGiaTriGG.Text;
-            newRow["GhiChu"] = txtGhiChu.Text;
+            newRow["Mã phiếu giảm"] = txtMaPGG.Text;
+            newRow["Tên phiếu giảm"] = txtTenPGG.Text;
+            newRow["Ngày bắt đầu"] = txtNgayBD1.Text;
+            newRow["Ngày kết thúc"] = txtNgayKT.Text;
+            newRow["Giá trị giảm"] = txtGiaTriGG.Text;
+            newRow["Ghi chú"] = txtGhiChu.Text;
             PGG.Rows.Add(newRow);
 
             SqlCommandBuilder builder = new SqlCommandBuilder(adap);
@@ -98,7 +98,7 @@ namespace QL_STMN
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                adap = new SqlDataAdapter("Select *from PhieuGiamGia", conn);
+                adap = new SqlDataAdapter("Select MaPGG as N'Mã phiếu giảm', TenPGG as N'Tên phiếu giảm', NgayBD as N'Ngày bắt đầu', NgayKT as N'Ngày kết thúc', GiaTriGG as N'Giá trị giảm (%)', GhiChu as N'Ghi chú' from PhieuGiamGia", conn);
                 DataRow deleteRow = PGG.Rows.Find(txtMaPGG.Text);
                 if (deleteRow != null)
                     deleteRow.Delete();
@@ -114,16 +114,16 @@ namespace QL_STMN
         }
         private void suaPGG()
         {
-            adap = new SqlDataAdapter("Select *from PhieuGiamGia", conn);
+            adap = new SqlDataAdapter("Select MaPGG as N'Mã phiếu giảm', TenPGG as N'Tên phiếu giảm', NgayBD as N'Ngày bắt đầu', NgayKT as N'Ngày kết thúc', GiaTriGG as N'Giá trị giảm (%)', GhiChu as N'Ghi chú' from PhieuGiamGia", conn);
             DataRow updateRow = PGG.Rows.Find(txtMaPGG.Text);
             if (updateRow != null)
             {
                 updateRow.BeginEdit();
-                updateRow["TenPGG"] = txtTenPGG.Text;
-                updateRow["NgayBD"] = txtNgayBD1.Text;
-                updateRow["NgayKT"] = txtNgayKT.Text;
-                updateRow["GiaTriGG"] = txtGiaTriGG.Text;
-                updateRow["GhiChu"] = txtGhiChu.Text;
+                updateRow["Tên phiếu giảm"] = txtTenPGG.Text;
+                updateRow["Ngày bắt đầu"] = txtNgayBD1.Text;
+                updateRow["Ngày kết thúc"] = txtNgayKT.Text;
+                updateRow["Giá trị giảm"] = txtGiaTriGG.Text;
+                updateRow["Ghi chú"] = txtGhiChu.Text;
                 updateRow.EndEdit();
             }
             else
@@ -144,7 +144,10 @@ namespace QL_STMN
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            themPGG();
+            if (isDuplicatePriKey(txtMaPGG.Text))
+                MessageBox.Show("Trùng mã phiếu giảm giá !!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+                themPGG();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)

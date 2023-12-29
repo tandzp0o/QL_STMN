@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,22 @@ namespace QL_STMN
 {
     public partial class frm_TrangChu : Form
     {
-        public frm_TrangChu()
+        SqlConnection conn;
+        string maNhanVien;
+        public frm_TrangChu(string tk)
         {
             InitializeComponent();
+            conn = new SqlConnection(KetNoiDB.strconn);
+
+            //lấy mã nhân viên của tài khoản đang đăng nhập
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+            SqlCommand cmd;
+            string Laytk = "Select MaNV from TaiKhoan where TaiKhoan = '" + tk + "'";
+            cmd = new SqlCommand(Laytk, conn);
+            maNhanVien = Convert.ToString(cmd.ExecuteScalar());
+            if (conn.State == ConnectionState.Open)
+                conn.Close();
         }
 
         private void mn_thongtin_Click(object sender, EventArgs e)
@@ -80,14 +94,14 @@ namespace QL_STMN
 
         private void bánHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frm_BanHang frmBanHang = new frm_BanHang();
+            frm_BanHang frmBanHang = new frm_BanHang(maNhanVien);
      
             frmBanHang.Show();
         }
 
         private void nhậpHàngToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frm_NhapHang frmNhapHang = new frm_NhapHang();
+            frm_NhapHang frmNhapHang = new frm_NhapHang(maNhanVien);
      
             frmNhapHang.Show();
         }

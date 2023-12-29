@@ -19,12 +19,23 @@ namespace QL_STMN
         SqlDataAdapter adap;
         DataTable dt;
         public float tongTien = 0;
-        public frm_BanHang()
+        string maNhanVien;
+        public frm_BanHang(string tk)
         {
             InitializeComponent();
             conn = new SqlConnection(KetNoiDB.strconn);
             ds_HangHoa = new DataSet();
             dt = new DataTable();
+
+            //lấy mã nhân viên của tài khoản đang đăng nhập
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+            SqlCommand cmd;
+            string Laytk = "Select MaNV from TaiKhoan where TaiKhoan = '" + tk + "'";
+            cmd = new SqlCommand(Laytk, conn);
+            maNhanVien = Convert.ToString(cmd.ExecuteScalar());
+            if (conn.State == ConnectionState.Open)
+                conn.Close();
         }
 
         private void btnThemPGG_Click(object sender, EventArgs e)
@@ -34,7 +45,7 @@ namespace QL_STMN
         }
         private void loadHangHoa()
         {
-            adap = new SqlDataAdapter("Select MaHH, TenHH, DVT, GiaBan, SoLuong, TenLoaiHH from HangHoa, LoaiHangHoa where HangHoa.MaloaiHH = LoaiHangHoa.MaLoaiHH", conn);
+            adap = new SqlDataAdapter("Select MaHH as N'Mã hàng hóa', TenHH as N'Tên hàng hóa', DVT, GiaBan as N'Giá bán', SoLuong as N'Số lượng', TenLoaiHH as N'Loại hàng' from HangHoa, LoaiHangHoa where HangHoa.MaloaiHH = LoaiHangHoa.MaLoaiHH", conn);
             adap.Fill(ds_HangHoa, "HH");
 
             DataColumn[] key = new DataColumn[1];
@@ -96,17 +107,17 @@ namespace QL_STMN
         private void Bingdings()
         {
             txtMaHH.DataBindings.Clear();
-            txtMaHH.DataBindings.Add("Text", dgvHangHoa.DataSource, "MaHH");
+            txtMaHH.DataBindings.Add("Text", dgvHangHoa.DataSource, "Mã hàng hóa");
             txtTenHH.DataBindings.Clear();
-            txtTenHH.DataBindings.Add("Text", dgvHangHoa.DataSource, "TenHH");
+            txtTenHH.DataBindings.Add("Text", dgvHangHoa.DataSource, "Tên hàng hóa");
             txtDVT.DataBindings.Clear();
             txtDVT.DataBindings.Add("Text", dgvHangHoa.DataSource, "DVT");
             txtGiaBan.DataBindings.Clear();
-            txtGiaBan.DataBindings.Add("Text", dgvHangHoa.DataSource, "GiaBan");
+            txtGiaBan.DataBindings.Add("Text", dgvHangHoa.DataSource, "Giá bán");
             txtSoLuongTon.DataBindings.Clear();
-            txtSoLuongTon.DataBindings.Add("Text", dgvHangHoa.DataSource, "SoLuong");
+            txtSoLuongTon.DataBindings.Add("Text", dgvHangHoa.DataSource, "Số lượng");
             txtLoaiHH.DataBindings.Clear();
-            txtLoaiHH.DataBindings.Add("Text", dgvHangHoa.DataSource, "TenLoaiHH");
+            txtLoaiHH.DataBindings.Add("Text", dgvHangHoa.DataSource, "Loại hàng");
             txtSoLuongMua.Value = 1;
         }
         private void loadBangHangMua()
@@ -137,7 +148,7 @@ namespace QL_STMN
             DataTable tk = new DataTable();
             if (txtTimTen.Text.Trim().Length > 0)
             {
-                adap = new SqlDataAdapter("Select MaHH, TenHH, DVT, GiaBan, SoLuong, TenLoaiHH from HangHoa, LoaiHangHoa where HangHoa.MaloaiHH = LoaiHangHoa.MaLoaiHH and TenHH like N'%" + txtTimTen.Text + "%'", conn);
+                adap = new SqlDataAdapter("Select MaHH as N'Mã hàng hóa', TenHH as N'Tên hàng hóa', DVT, GiaBan as N'Giá bán', SoLuong as N'Số lượng', TenLoaiHH as N'Loại hàng' from HangHoa, LoaiHangHoa where HangHoa.MaloaiHH = LoaiHangHoa.MaLoaiHH and TenHH like N'%" + txtTimTen.Text + "%'", conn);
                 adap.Fill(tk);
                 dgvHangHoa.DataSource = tk;
             }
@@ -370,7 +381,7 @@ namespace QL_STMN
             }
             else
             {
-                sql = "Insert into PhieuBanHang Values('" + maPBH + "', 'NV001', NULL, NULL,'" + strNgay + "', 'Bán hàng tháng " + homNay.ToString("MM") + "', NULL)";
+                sql = "Insert into PhieuBanHang Values('" + maPBH + "', '"+maNhanVien+"', NULL, NULL,'" + strNgay + "', 'Bán hàng tháng " + homNay.ToString("MM") + "', NULL)";
                 cmd = new SqlCommand(sql, conn);
                 int kq = cmd.ExecuteNonQuery();
             }
