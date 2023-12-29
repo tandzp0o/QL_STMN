@@ -411,19 +411,15 @@ RETURN (
 );
 go
 --function tính doanh thu theo ngày
-CREATE FUNCTION dbo.DoanhThuNgay(@Ngay DATE)
+CREATE FUNCTION dbo.DoanhThuNgay(@NgayBatDau date, @NgayKetThuc date)
 RETURNS TABLE
 AS
-RETURN 
-(
-    SELECT
-        PBH.MaBanHang,
-        PBH.NgayBH,
-        PBH.TongTien
-    FROM
-        PhieuBanHang PBH
-    WHERE
-        CONVERT(DATE, PBH.NgayBH) = @Ngay
+RETURN (
+    select format(convert(date, COALESCE(p.NgayNhap, h.NgayBH)), 'dd-MM-yyyy') as Ngay, ISNULL(isnull(sum(TongTien), 0)-isnull(sum(TienNhapHang), 0), 0) as DoanhThu 
+	from PhieuBanHang h full join PhieuNhapHang p 
+	on h.NgayBH = p.NgayNhap
+	where (NgayBH >= @NgayBatDau and NgayBH <= @NgayKetThuc) or (NgayNhap >= @NgayBatDau and NgayNhap <= @NgayKetThuc)
+	group by convert(date, COALESCE(p.NgayNhap, h.NgayBH))
 );
 go
 
@@ -432,14 +428,12 @@ CREATE FUNCTION dbo.DoanhThuQuy(@Quy int)
 RETURNS TABLE
 AS
 RETURN (
-   SELECT
-        PBH.MaBanHang,
-        PBH.NgayBH,
-        PBH.TongTien
-    FROM
-        PhieuBanHang PBH
+    SELECT MONTH(COALESCE(NgayNhap, NgayBH)) as Thang, ISNULL(isnull(sum(TongTien), 0) - isnull(sum(TienNhapHang), 0), 0) AS DoanhThu
+	FROM PhieuBanHang full join PhieuNhapHang
+	on NgayNhap = NgayBH
 	WHERE YEAR(NgayBH) = year(getdate())
-	AND Datepart(QUARTER, NgayBH) = @Quy
+	AND Datepart(QUARTER, NgayBH) = @Quy or Datepart(QUARTER, NgayNhap) = @Quy
+	group by MONTH(COALESCE(NgayNhap, NgayBH))
 );
 go
 	
@@ -449,11 +443,8 @@ RETURNS Float
 AS
 BEGIN
     declare @Tong int = 0
-	select @Tong = sum(PBH.TongTien) from PhieuBanHang PBH
-	WHERE YEAR(NgayBH) = year(getdate())
-    AND DATEPART(QUARTER, PBH.NgayBH) = @Quy;
-
-    RETURN ISNULL(@Tong, 0);
+	select @Tong = sum(DoanhThu) from dbo.DoanhThuQuy(@Quy)
+	return @Tong;
 END
 go
 --function tính doanh thu theo các quý
