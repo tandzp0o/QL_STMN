@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nhom1_QuanLySieuThiMini;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace QL_STMN
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frm_Login());
+
         }
     }
 }

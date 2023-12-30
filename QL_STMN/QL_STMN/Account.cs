@@ -10,24 +10,24 @@ namespace QL_STMN
 {
     public class Account
     {
-        // tạo 1 thể hiện(instance)
-        //private static Account instance;
+        //tạo 1 thể hiện(instance)
+        private static Account instance;
         public string TK { get; set; }
         public string MK { get; set; }
         public string MaNV { get; set; }
-        //public static Account Instance
-        //{
-        //    get 
-        //    { 
-        //        if (instance == null) 
-        //            instance = new Account();
-        //        return instance;
-        //    }            
-        //    private set
-        //    {
-        //        instance = value;
-        //    }
-        //}
+        public static Account Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new Account();
+                return instance;
+            }
+            private set
+            {
+                instance = value;
+            }
+        }
 
         public Account(string tk, string mk, string manv)
         {
@@ -39,6 +39,7 @@ namespace QL_STMN
         {
 
         }
+
     }
     public class ListTaiKhoan
     {

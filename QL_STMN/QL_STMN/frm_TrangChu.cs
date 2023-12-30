@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nhom1_QuanLySieuThiMini;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,7 +15,7 @@ namespace QL_STMN
     public partial class frm_TrangChu : Form
     {
         SqlConnection conn;
-        string maNhanVien;
+        public string maNhanVien;
         public frm_TrangChu(string tk)
         {
             InitializeComponent();
@@ -53,29 +54,29 @@ namespace QL_STMN
         private void quảnLíLoạiHàngHóaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frm_LoaiHangHoa frmLoaiHH = new frm_LoaiHangHoa();
-            
-            frmLoaiHH.Show();
+         
+            frmLoaiHH.ShowDialog();
         }
 
         private void quảnLíPhiếuGiảmGiáToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frm_PhieuGiamGia frmPGG = new frm_PhieuGiamGia();
             
-            frmPGG.Show();
+            frmPGG.ShowDialog();
         }
 
         private void quảnLíSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frm_HangHoa frmHH = new frm_HangHoa();
      
-            frmHH.Show();
+            frmHH.ShowDialog();
         }
 
         private void quảnLíNhàCungCấpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frm_NhaCungCap frmNCC = new frm_NhaCungCap();
        
-            frmNCC.Show();
+            frmNCC.ShowDialog();
         }
 
         private void quảnLíKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
@@ -87,46 +88,45 @@ namespace QL_STMN
 
         private void quảnLíTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //frmQuanLy_TaiKhoan frmTK = new frmQuanLy_TaiKhoan();
-           
-            //frmTK.Show();
+            frmQuanLy_TaiKhoan frmQuanLyTK = new frmQuanLy_TaiKhoan();
+            frmQuanLyTK.ShowDialog();
         }
 
         private void bánHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frm_BanHang frmBanHang = new frm_BanHang(maNhanVien);
      
-            frmBanHang.Show();
+            frmBanHang.ShowDialog();
         }
 
         private void nhậpHàngToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frm_NhapHang frmNhapHang = new frm_NhapHang(maNhanVien);
      
-            frmNhapHang.Show();
+            frmNhapHang.ShowDialog();
         }
 
         private void mn_quanly_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void quảnLíHoáĐơnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frm_QLHoaDon frmHoaDon = new frm_QLHoaDon();
-            frmHoaDon.Show();
+            frmHoaDon.ShowDialog();
         }
 
         private void quảnLíNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frm_NhanVien frmNV = new frm_NhanVien();
-            frmNV.Show();
+            frmNV.ShowDialog();
         }
 
         private void quảnLíNhàCungCấpToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             frm_NhaCungCap frmNCC = new frm_NhaCungCap();
-            frmNCC.Show();
+            frmNCC.ShowDialog();
         }
 
         private void frmTrangChu_Load(object sender, EventArgs e)
@@ -137,7 +137,7 @@ namespace QL_STMN
         private void thốngKêToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frm_ThongKeDoanhThu frmDoanhThu = new frm_ThongKeDoanhThu();
-            frmDoanhThu.Show();
+            frmDoanhThu.ShowDialog();
         }
     }
 }

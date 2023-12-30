@@ -63,11 +63,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="DBConnect.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuanLy_TaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuanLy_TaiKhoan.designer.cs">
+      <DependentUpon>frmQuanLy_TaiKhoan.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_TrangChu.cs">
       <SubType>Form</SubType>
@@ -154,10 +161,12 @@
     <Compile Include="frm_NhanVien.designer.cs">
       <DependentUpon>frm_NhanVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="NhanVien.cs" />
     <Compile Include="NhanVienSTMN.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmQuanLy_TaiKhoan.resx">
+      <DependentUpon>frmQuanLy_TaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_TrangChu.resx">
       <DependentUpon>frm_TrangChu.cs</DependentUpon>
     </EmbeddedResource>

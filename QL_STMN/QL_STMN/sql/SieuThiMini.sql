@@ -1,5 +1,6 @@
 ﻿USE MASTER
 GO
+alter database SieuThiMini set single_user with rollback immediate
 
 DROP DATABASE SieuThiMini
 GO
@@ -495,7 +496,8 @@ VALUES
     ('NV002', N'Nguyễn Thị B', N'Nữ', '1995-05-20', '0987654321', N'456 Đường XYZ, Quận 2, TP.HCM','CV02'),
     ('NV003', N'Trần Văn C', N'Nam', '1988-11-10', '0369852147', N'789 Đường DEF, Quận 3, TP.HCM','CV02'),
     ('NV004', N'Vũ Thị D', N'Nữ', '1993-07-25', '0912345678', N'321 Đường LMN, Quận 4, TP.HCM','CV02'),
-    ('NV005', N'Hoàng Văn E', N'Nam', '1992-03-30', '0765432198', N'654 Đường XYZ, Quận 5, TP.HCM','CV02');
+    ('NV005', N'Hoàng Văn E', N'Nam', '1992-03-30', '0765432198', N'654 Đường XYZ, Quận 5, TP.HCM','CV02'),
+    ('NV006', N'Lê Tấn', N'Nam', '1992-03-30', '0123456789', N'123 Đường ABC, Quận 1, TP.HCM','CV01');
 GO
 
 --Dữ liệu cho bảng TaiKhoan

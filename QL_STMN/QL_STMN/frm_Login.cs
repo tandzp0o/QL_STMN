@@ -18,7 +18,7 @@ namespace QL_STMN
     {
 
         ListTaiKhoan dstk = new ListTaiKhoan();
-        ListNhanVien dsnv = new ListNhanVien();
+        ListNhanVienSTMN dsnv = new ListNhanVienSTMN();
         public frm_Login()
         {
             InitializeComponent();
@@ -41,42 +41,12 @@ namespace QL_STMN
             {
                 string MaNV = dstk.Find_MaNV_By_TK(tk);
                 string MaCV = dsnv.Find_MaCV(MaNV);
-                if(MaCV == "CV01") // quản lý
-                {
-                    frm_TrangChu f = new frm_TrangChu(tk);
-                    txtTK.Text = string.Empty;
-                    txtMK.Text = string.Empty;
-                    this.Hide();
-                    f.ShowDialog();
-                    this.Show();
-                }    
-                else if(MaCV == "CV02") // nv bán hàng
-                {
-                    frm_BanHang f = new frm_BanHang(tk);
-                    txtTK.Text = string.Empty;
-                    txtMK.Text = string.Empty;
-                    this.Hide();
-                    f.ShowDialog();
-                    this.Show();
-                }
-                else if (MaCV == "CV03") // nv kế toán
-                {
-                    frm_BanHang f = new frm_BanHang(tk);
-                    txtTK.Text = string.Empty;
-                    txtMK.Text = string.Empty;
-                    this.Hide();
-                    f.ShowDialog();
-                    this.Show();
-                }
-                else if (MaCV == "CV04") // nv kho
-                {
-                    frm_BanHang f = new frm_BanHang(tk);
-                    txtTK.Text = string.Empty;
-                    txtMK.Text = string.Empty;
-                    this.Hide();
-                    f.ShowDialog();
-                    this.Show();
-                }
+                frm_TrangChu f = new frm_TrangChu(tk);
+                txtTK.Text = string.Empty;
+                txtMK.Text = string.Empty;
+                this.Hide();
+                f.ShowDialog();
+                this.Show();
             }
             else
                 MessageBox.Show("Tài khoản hoặc mật khẩu chưa chính xác");
@@ -118,6 +88,13 @@ namespace QL_STMN
             }
             else
                 pictureBox1.Visible = true;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            // load dữ liệu từ db lên list tài khoản và list nhân viên
+            dsnv.GetData_NhanVien();
+            dstk.GetData_TaiKhoan();
         }
     }
 }
