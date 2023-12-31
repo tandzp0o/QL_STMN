@@ -198,6 +198,7 @@
             this.Controls.Add(this.lblNhanVienLap);
             this.Controls.Add(this.tblMaHoaDon);
             this.Name = "frmChiTietHoaDon";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chi tiết hóa đơn";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

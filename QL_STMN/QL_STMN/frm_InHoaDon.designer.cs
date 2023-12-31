@@ -208,6 +208,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "frm_InHoaDon";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hóa đơn thanh toán";
             ((System.ComponentModel.ISupportInitialize)(this.dgvHangMua)).EndInit();
             this.ResumeLayout(false);

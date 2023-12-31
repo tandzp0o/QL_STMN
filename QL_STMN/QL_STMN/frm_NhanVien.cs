@@ -50,6 +50,14 @@ namespace QL_STMN
             da_NhanVien = new SqlDataAdapter(query, KetNoiDB.strconn);
             da_NhanVien.Fill(ds_NhanVien, "NhanVien");
             dgv_DanhSachNhanVien.DataSource = ds_NhanVien.Tables["NhanVien"];
+            dgv_DanhSachNhanVien.Columns[0].HeaderText = "Mã nhân viên";
+            dgv_DanhSachNhanVien.Columns[1].HeaderText = "Tên";
+            dgv_DanhSachNhanVien.Columns[2].HeaderText = "Giới tính";
+            dgv_DanhSachNhanVien.Columns[3].HeaderText = "Năm sinh";
+            dgv_DanhSachNhanVien.Columns[4].HeaderText = "SĐT";
+            dgv_DanhSachNhanVien.Columns[5].HeaderText = "Địa chỉ";
+            dgv_DanhSachNhanVien.Columns[6].HeaderText = "Mã chức vụ";
+            dgv_DanhSachNhanVien.Columns[7].HeaderText = "Tên chức vụ";
             DataColumn[] key = new DataColumn[1];
             key[0] = ds_NhanVien.Tables["NhanVien"].Columns[0];
             ds_NhanVien.Tables["NhanVien"].PrimaryKey = key;

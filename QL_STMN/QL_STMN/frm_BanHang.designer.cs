@@ -48,6 +48,7 @@
             this.txtSoLuongMua = new System.Windows.Forms.NumericUpDown();
             this.btnChonHang = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtSoLuongTon = new System.Windows.Forms.TextBox();
             this.txtGiaBan = new System.Windows.Forms.TextBox();
             this.txtMaHH = new System.Windows.Forms.TextBox();
             this.txtTenHH = new System.Windows.Forms.TextBox();
@@ -56,6 +57,7 @@
             this.txtDVT = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.grbKH = new System.Windows.Forms.GroupBox();
@@ -76,8 +78,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblDate = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtSoLuongTon = new System.Windows.Forms.TextBox();
             this.grbDaChon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHangMua)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -295,6 +295,15 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "Mã hàng hóa: ";
             // 
+            // txtSoLuongTon
+            // 
+            this.txtSoLuongTon.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtSoLuongTon.Location = new System.Drawing.Point(417, 111);
+            this.txtSoLuongTon.Name = "txtSoLuongTon";
+            this.txtSoLuongTon.Size = new System.Drawing.Size(94, 26);
+            this.txtSoLuongTon.TabIndex = 10;
+            this.txtSoLuongTon.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // txtGiaBan
             // 
             this.txtGiaBan.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -365,6 +374,16 @@
             this.label6.Size = new System.Drawing.Size(128, 19);
             this.label6.TabIndex = 6;
             this.label6.Text = "Nhập số lượng mua";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(417, 89);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 19);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Số lượng tồn: ";
             // 
             // label7
             // 
@@ -563,25 +582,6 @@
             this.lblTime.TabIndex = 15;
             this.lblTime.Text = "Time";
             // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(417, 89);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 19);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Số lượng tồn: ";
-            // 
-            // txtSoLuongTon
-            // 
-            this.txtSoLuongTon.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtSoLuongTon.Location = new System.Drawing.Point(417, 111);
-            this.txtSoLuongTon.Name = "txtSoLuongTon";
-            this.txtSoLuongTon.Size = new System.Drawing.Size(94, 26);
-            this.txtSoLuongTon.TabIndex = 10;
-            this.txtSoLuongTon.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // frm_BanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -602,6 +602,7 @@
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "frm_BanHang";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bán hàng";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_BanHang_FormClosing);
             this.Load += new System.EventHandler(this.frm_BanHang_Load);

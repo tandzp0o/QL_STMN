@@ -199,6 +199,7 @@
             // txtMaHH
             // 
             this.txtMaHH.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtMaHH.Enabled = false;
             this.txtMaHH.Location = new System.Drawing.Point(125, 32);
             this.txtMaHH.Name = "txtMaHH";
             this.txtMaHH.Size = new System.Drawing.Size(113, 26);
