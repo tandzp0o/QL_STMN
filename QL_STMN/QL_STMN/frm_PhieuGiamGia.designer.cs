@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_PhieuGiamGia));
             this.grnTTLHH = new System.Windows.Forms.GroupBox();
             this.txtNgayBD1 = new System.Windows.Forms.MaskedTextBox();
             this.txtGiaTriGG = new System.Windows.Forms.TextBox();
@@ -67,7 +68,7 @@
             this.grnTTLHH.Controls.Add(this.label3);
             this.grnTTLHH.Controls.Add(this.label2);
             this.grnTTLHH.Controls.Add(this.label1);
-            this.grnTTLHH.Location = new System.Drawing.Point(11, 46);
+            this.grnTTLHH.Location = new System.Drawing.Point(11, 72);
             this.grnTTLHH.Name = "grnTTLHH";
             this.grnTTLHH.Size = new System.Drawing.Size(304, 256);
             this.grnTTLHH.TabIndex = 11;
@@ -78,7 +79,7 @@
             // 
             this.txtNgayBD1.Location = new System.Drawing.Point(144, 108);
             this.txtNgayBD1.Name = "txtNgayBD1";
-            this.txtNgayBD1.Size = new System.Drawing.Size(132, 26);
+            this.txtNgayBD1.Size = new System.Drawing.Size(132, 30);
             this.txtNgayBD1.TabIndex = 15;
             // 
             // txtGiaTriGG
@@ -86,7 +87,7 @@
             this.txtGiaTriGG.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtGiaTriGG.Location = new System.Drawing.Point(145, 178);
             this.txtGiaTriGG.Name = "txtGiaTriGG";
-            this.txtGiaTriGG.Size = new System.Drawing.Size(132, 26);
+            this.txtGiaTriGG.Size = new System.Drawing.Size(132, 30);
             this.txtGiaTriGG.TabIndex = 4;
             this.txtGiaTriGG.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -95,7 +96,7 @@
             this.txtTenPGG.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtTenPGG.Location = new System.Drawing.Point(145, 72);
             this.txtTenPGG.Name = "txtTenPGG";
-            this.txtTenPGG.Size = new System.Drawing.Size(132, 26);
+            this.txtTenPGG.Size = new System.Drawing.Size(132, 30);
             this.txtTenPGG.TabIndex = 5;
             // 
             // txtNgayKT
@@ -103,7 +104,7 @@
             this.txtNgayKT.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtNgayKT.Location = new System.Drawing.Point(145, 143);
             this.txtNgayKT.Name = "txtNgayKT";
-            this.txtNgayKT.Size = new System.Drawing.Size(132, 26);
+            this.txtNgayKT.Size = new System.Drawing.Size(132, 30);
             this.txtNgayKT.TabIndex = 5;
             // 
             // label6
@@ -112,7 +113,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(79, 216);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 19);
+            this.label6.Size = new System.Drawing.Size(78, 22);
             this.label6.TabIndex = 3;
             this.label6.Text = "Ghi chú:";
             // 
@@ -121,7 +122,7 @@
             this.txtGhiChu.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtGhiChu.Location = new System.Drawing.Point(145, 213);
             this.txtGhiChu.Name = "txtGhiChu";
-            this.txtGhiChu.Size = new System.Drawing.Size(132, 26);
+            this.txtGhiChu.Size = new System.Drawing.Size(132, 30);
             this.txtGhiChu.TabIndex = 5;
             // 
             // label4
@@ -130,7 +131,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(40, 146);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 19);
+            this.label4.Size = new System.Drawing.Size(123, 22);
             this.label4.TabIndex = 3;
             this.label4.Text = "Ngày kết thúc:";
             // 
@@ -139,7 +140,7 @@
             this.txtMaPGG.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtMaPGG.Location = new System.Drawing.Point(145, 37);
             this.txtMaPGG.Name = "txtMaPGG";
-            this.txtMaPGG.Size = new System.Drawing.Size(132, 26);
+            this.txtMaPGG.Size = new System.Drawing.Size(132, 30);
             this.txtMaPGG.TabIndex = 5;
             // 
             // label5
@@ -148,7 +149,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(29, 181);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(108, 19);
+            this.label5.Size = new System.Drawing.Size(147, 22);
             this.label5.TabIndex = 2;
             this.label5.Text = "Giá trị giảm (%):";
             // 
@@ -158,7 +159,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(13, 76);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(124, 19);
+            this.label3.Size = new System.Drawing.Size(166, 22);
             this.label3.TabIndex = 3;
             this.label3.Text = "Tên phiếu giảm giá:";
             // 
@@ -168,7 +169,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(43, 111);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 19);
+            this.label2.Size = new System.Drawing.Size(119, 22);
             this.label2.TabIndex = 2;
             this.label2.Text = "Ngày bắt đầu:";
             // 
@@ -178,7 +179,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(15, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 19);
+            this.label1.Size = new System.Drawing.Size(162, 22);
             this.label1.TabIndex = 3;
             this.label1.Text = "Mã phiếu giảm giá:";
             // 
@@ -190,17 +191,21 @@
             this.dgvPGG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPGG.Location = new System.Drawing.Point(321, 46);
             this.dgvPGG.Name = "dgvPGG";
+            this.dgvPGG.RowHeadersWidth = 51;
             this.dgvPGG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPGG.Size = new System.Drawing.Size(640, 201);
+            this.dgvPGG.Size = new System.Drawing.Size(640, 215);
             this.dgvPGG.TabIndex = 10;
             // 
             // btnTroVe
             // 
+            this.btnTroVe.Image = ((System.Drawing.Image)(resources.GetObject("btnTroVe.Image")));
+            this.btnTroVe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTroVe.Location = new System.Drawing.Point(11, 12);
             this.btnTroVe.Name = "btnTroVe";
-            this.btnTroVe.Size = new System.Drawing.Size(88, 28);
+            this.btnTroVe.Size = new System.Drawing.Size(115, 54);
             this.btnTroVe.TabIndex = 9;
             this.btnTroVe.Text = "Trở về";
+            this.btnTroVe.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTroVe.UseVisualStyleBackColor = true;
             this.btnTroVe.Click += new System.EventHandler(this.btnTroVe_Click);
             // 
@@ -212,48 +217,57 @@
             this.lblTieuDe.Location = new System.Drawing.Point(362, 9);
             this.lblTieuDe.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblTieuDe.Name = "lblTieuDe";
-            this.lblTieuDe.Size = new System.Drawing.Size(239, 31);
+            this.lblTieuDe.Size = new System.Drawing.Size(302, 38);
             this.lblTieuDe.TabIndex = 8;
             this.lblTieuDe.Text = "PHIẾU GIẢM GIÁ";
             // 
             // btnSua
             // 
             this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSua.Location = new System.Drawing.Point(615, 263);
+            this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
+            this.btnSua.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSua.Location = new System.Drawing.Point(605, 267);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(118, 40);
+            this.btnSua.Size = new System.Drawing.Size(107, 61);
             this.btnSua.TabIndex = 12;
-            this.btnSua.Text = "Sửa phiếu";
+            this.btnSua.Text = "Sửa";
+            this.btnSua.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSua.UseVisualStyleBackColor = true;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
             this.btnXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnXoa.Location = new System.Drawing.Point(468, 263);
+            this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
+            this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnXoa.Location = new System.Drawing.Point(468, 267);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(118, 40);
+            this.btnXoa.Size = new System.Drawing.Size(100, 61);
             this.btnXoa.TabIndex = 13;
-            this.btnXoa.Text = "Xóa phiếu";
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXoa.UseVisualStyleBackColor = true;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnThem
             // 
             this.btnThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThem.Location = new System.Drawing.Point(321, 263);
+            this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
+            this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnThem.Location = new System.Drawing.Point(321, 267);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(118, 40);
+            this.btnThem.Size = new System.Drawing.Size(110, 61);
             this.btnThem.TabIndex = 14;
-            this.btnThem.Text = "Thêm phiếu";
+            this.btnThem.Text = "Thêm";
+            this.btnThem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // frm_PhieuGiamGia
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(973, 318);
+            this.ClientSize = new System.Drawing.Size(973, 343);
             this.Controls.Add(this.grnTTLHH);
             this.Controls.Add(this.dgvPGG);
             this.Controls.Add(this.btnTroVe);

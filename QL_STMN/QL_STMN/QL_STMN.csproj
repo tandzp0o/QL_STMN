@@ -238,6 +238,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Icon\icons8-search-48.png" />
+    <None Include="Icon\icons8-add-48.png" />
+    <None Include="Icon\icons8-delete-48.png" />
+    <None Include="Icon\icons8-edit-48.png" />
+    <None Include="Icon\icons8-refresh-48.png" />
+    <None Include="Icon\icons8-close-48.png" />
+    <Content Include="Icon\icons8-choose-48.png" />
+    <Content Include="Icon\icons8-eye-48.png" />
+    <Content Include="Icon\icons8-input-48.png" />
+    <Content Include="Icon\icons8-paid-48.png" />
+    <Content Include="Icon\icons8-return-48.png" />
     <Content Include="Image\63827014164001.png" />
     <Content Include="Image\9929030_import_goods_delivery_cargo_transportation_icon %281%29.png" />
     <Content Include="Image\action-display-password-512.png" />
