@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_HangHoa));
             this.lblTieuDe = new System.Windows.Forms.Label();
             this.grbTTHH = new System.Windows.Forms.GroupBox();
             this.cboNCC = new System.Windows.Forms.ComboBox();
@@ -59,7 +60,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.dgvHangHoa = new System.Windows.Forms.DataGridView();
             this.btnThem = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
@@ -394,21 +394,10 @@
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
-            // btnXoa
-            // 
-            this.btnXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnXoa.Location = new System.Drawing.Point(725, 398);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(118, 40);
-            this.btnXoa.TabIndex = 0;
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.UseVisualStyleBackColor = true;
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
-            // 
             // btnSua
             // 
             this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSua.Location = new System.Drawing.Point(725, 464);
+            this.btnSua.Location = new System.Drawing.Point(725, 431);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(118, 40);
             this.btnSua.TabIndex = 0;
@@ -440,11 +429,11 @@
             this.Controls.Add(this.grbTimKiem);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnSua);
-            this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.grbTTHH);
             this.Controls.Add(this.lblTieuDe);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frm_HangHoa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -492,7 +481,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridView dgvHangHoa;
         private System.Windows.Forms.Button btnThem;
-        private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnQLNCC;

@@ -45,7 +45,7 @@ namespace QL_STMN
         }
         private void loadHangHoa()
         {
-            adap = new SqlDataAdapter("Select MaHH as N'Mã hàng hóa', TenHH as N'Tên hàng hóa', DVT, GiaBan as N'Giá bán', SoLuong as N'Số lượng', TenLoaiHH as N'Loại hàng' from HangHoa, LoaiHangHoa where HangHoa.MaloaiHH = LoaiHangHoa.MaLoaiHH", conn);
+            adap = new SqlDataAdapter("Select MaHH as N'Mã hàng hóa', TenHH as N'Tên hàng hóa', DVT, GiaBan as N'Giá bán', SoLuong as N'Số lượng', TenLoaiHH as N'Loại hàng' from HangHoa, LoaiHangHoa where HangHoa.MaloaiHH = LoaiHangHoa.MaLoaiHH and soluong > 0", conn);
             adap.Fill(ds_HangHoa, "HH");
 
             DataColumn[] key = new DataColumn[1];

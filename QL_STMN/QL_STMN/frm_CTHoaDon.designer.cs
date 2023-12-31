@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmChiTietHoaDon));
             this.tblMaHoaDon = new System.Windows.Forms.Label();
             this.lblNhanVienLap = new System.Windows.Forms.Label();
             this.lblGhiChu = new System.Windows.Forms.Label();
@@ -197,6 +198,7 @@
             this.Controls.Add(this.lblGhiChu);
             this.Controls.Add(this.lblNhanVienLap);
             this.Controls.Add(this.tblMaHoaDon);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmChiTietHoaDon";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chi tiết hóa đơn";

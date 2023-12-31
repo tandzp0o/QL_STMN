@@ -63,6 +63,16 @@ namespace QL_STMN.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _9929030_import_goods_delivery_cargo_transportation_icon__1_ {
+            get {
+                object obj = ResourceManager.GetObject("9929030_import_goods_delivery_cargo_transportation_icon (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap action_display_password_512 {
             get {
                 object obj = ResourceManager.GetObject("action-display-password-512", resourceCulture);
@@ -76,6 +86,176 @@ namespace QL_STMN.Properties {
         internal static System.Drawing.Bitmap action_hide_password {
             get {
                 object obj = ResourceManager.GetObject("action_hide_password", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap b3 {
+            get {
+                object obj = ResourceManager.GetObject("b3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap b31 {
+            get {
+                object obj = ResourceManager.GetObject("b31", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bar_chart__1___1_ {
+            get {
+                object obj = ResourceManager.GetObject("bar-chart (1) (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap baseline_account_box_black_24dp {
+            get {
+                object obj = ResourceManager.GetObject("baseline_account_box_black_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap baseline_add_black_24dp {
+            get {
+                object obj = ResourceManager.GetObject("baseline_add_black_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap baseline_close_black_24dp {
+            get {
+                object obj = ResourceManager.GetObject("baseline_close_black_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap baseline_create_black_24dp {
+            get {
+                object obj = ResourceManager.GetObject("baseline_create_black_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap baseline_create_black_24dp1 {
+            get {
+                object obj = ResourceManager.GetObject("baseline_create_black_24dp1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap baseline_delete_black_24dp {
+            get {
+                object obj = ResourceManager.GetObject("baseline_delete_black_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap baseline_delete_black_24dp1 {
+            get {
+                object obj = ResourceManager.GetObject("baseline_delete_black_24dp1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap baseline_logout_black_24dp {
+            get {
+                object obj = ResourceManager.GetObject("baseline_logout_black_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap baseline_loop_black_24dp {
+            get {
+                object obj = ResourceManager.GetObject("baseline_loop_black_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap baseline_search_black_24dp {
+            get {
+                object obj = ResourceManager.GetObject("baseline_search_black_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap baseline_storefront_black_24dp {
+            get {
+                object obj = ResourceManager.GetObject("baseline_storefront_black_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap thu_tuc_mo_sieu_thi_mini_1509154824 {
+            get {
+                object obj = ResourceManager.GetObject("thu-tuc-mo-sieu-thi-mini_1509154824", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap z5026830135283_28793303fd5d721acab7dee762584c5e {
+            get {
+                object obj = ResourceManager.GetObject("z5026830135283_28793303fd5d721acab7dee762584c5e", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap z5026830135283_28793303fd5d721acab7dee762584c5e1 {
+            get {
+                object obj = ResourceManager.GetObject("z5026830135283_28793303fd5d721acab7dee762584c5e1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

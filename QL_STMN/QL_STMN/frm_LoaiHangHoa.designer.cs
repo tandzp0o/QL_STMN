@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_LoaiHangHoa));
             this.lblTieuDe = new System.Windows.Forms.Label();
             this.btnTroVe = new System.Windows.Forms.Button();
             this.dgvLoaiHH = new System.Windows.Forms.DataGridView();
@@ -175,6 +176,7 @@
             this.Controls.Add(this.btnTroVe);
             this.Controls.Add(this.lblTieuDe);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frm_LoaiHangHoa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

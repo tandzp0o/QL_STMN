@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_NhapHang));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtLoaiHH = new System.Windows.Forms.TextBox();
             this.txtNCC = new System.Windows.Forms.TextBox();
@@ -431,6 +432,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frm_NhapHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

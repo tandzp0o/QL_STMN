@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_BanHang));
             this.grbDaChon = new System.Windows.Forms.GroupBox();
             this.btnTongTien = new System.Windows.Forms.Button();
             this.btnThemPGG = new System.Windows.Forms.Button();
@@ -600,6 +601,7 @@
             this.Controls.Add(this.grbHangHoa);
             this.Controls.Add(this.dgvHangHoa);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "frm_BanHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -81,9 +81,9 @@ namespace QL_STMN
 
         private void quảnLíKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //frmQuanLy_KhachHang frmKH = new frmQuanLy_KhachHang();
+            frm_QLKhachHang frmKH = new frm_QLKhachHang();
 
-            //frmKH.Show();
+            frmKH.Show();
         }
 
         private void quảnLíTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)

@@ -64,17 +64,17 @@
   <ItemGroup>
     <Compile Include="Account.cs" />
     <Compile Include="DBConnect.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmQuanLy_TaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmQuanLy_TaiKhoan.designer.cs">
       <DependentUpon>frmQuanLy_TaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_QLKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_QLKhachHang.Designer.cs">
+      <DependentUpon>frm_QLKhachHang.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_TrangChu.cs">
       <SubType>Form</SubType>
@@ -167,6 +167,9 @@
     <EmbeddedResource Include="frmQuanLy_TaiKhoan.resx">
       <DependentUpon>frmQuanLy_TaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_QLKhachHang.resx">
+      <DependentUpon>frm_QLKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_TrangChu.resx">
       <DependentUpon>frm_TrangChu.cs</DependentUpon>
     </EmbeddedResource>
@@ -228,12 +231,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\app-update.yml" />
+    <None Include="Resources\app.asar" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Image\63827014164001.png" />
+    <Content Include="Image\9929030_import_goods_delivery_cargo_transportation_icon %281%29.png" />
     <Content Include="Image\action-display-password-512.png" />
     <Content Include="Image\action-display-password-64.png" />
     <Content Include="Image\action-hide-password.png" />
@@ -241,12 +247,27 @@
     <Content Include="Image\b2.jpg" />
     <Content Include="Image\b3.jpg" />
     <Content Include="Image\b3.png" />
+    <Content Include="Image\bar-chart %281%29 %281%29.png" />
+    <Content Include="Image\baseline_account_box_black_24dp.png" />
+    <Content Include="Image\baseline_close_black_24dp.png" />
+    <Content Include="Image\baseline_create_black_24dp.png" />
+    <Content Include="Image\baseline_delete_black_24dp.png" />
+    <Content Include="Image\baseline_shopping_cart_black_24dp.ico" />
+    <Content Include="Image\baseline_storefront_black_24dp.png" />
     <Content Include="Image\bg.jpg" />
+    <Content Include="Image\bgg.jpg" />
     <Content Include="Image\Logo.jpg" />
     <Content Include="Image\printer.png" />
     <Content Include="Image\staff.jpg" />
     <None Include="Resources\action-display-password-512.png" />
     <None Include="Resources\action-hide-password.png" />
+    <Content Include="Image\z5026830135283_28793303fd5d721acab7dee762584c5e.jpg" />
+    <Content Include="Resources\baseline_add_black_24dp.png" />
+    <Content Include="Resources\baseline_add_black_24dp1.png" />
+    <Content Include="Resources\baseline_logout_black_24dp.png" />
+    <Content Include="Resources\baseline_loop_black_24dp.png" />
+    <Content Include="Resources\baseline_search_black_24dp.png" />
+    <Content Include="Resources\thu-tuc-mo-sieu-thi-mini_1509154824.jpeg" />
     <Content Include="sql\SieuThiMini.sql" />
   </ItemGroup>
   <ItemGroup>

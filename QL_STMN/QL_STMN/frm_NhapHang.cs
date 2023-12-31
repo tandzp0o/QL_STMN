@@ -19,22 +19,13 @@ namespace QL_STMN
         DataSet ds_HangHoa;
         DataTable dt;
         string maNhanVien;
-        public frm_NhapHang(string tk)
+        public frm_NhapHang(string ma)
         {
             InitializeComponent();
             conn = new SqlConnection(KetNoiDB.strconn);
             ds_HangHoa = new DataSet();
             dt = new DataTable();
-
-            //lấy mã nhân viên của tài khoản đang đăng nhập
-            if (conn.State == ConnectionState.Closed)
-                conn.Open();
-            SqlCommand cmd;
-            string Laytk = "Select MaNV from TaiKhoan where TaiKhoan = '" + tk + "'";
-            cmd = new SqlCommand(Laytk, conn);
-            maNhanVien = Convert.ToString(cmd.ExecuteScalar());
-            if (conn.State == ConnectionState.Open)
-                conn.Close();
+            maNhanVien = ma;
         }
         private void loadHH()
         {

@@ -1,0 +1,4 @@
+owner: WestBerryVIA
+repo: via-releases
+provider: github
+updaterCacheDirName: ivia-updater

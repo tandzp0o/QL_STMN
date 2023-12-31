@@ -144,7 +144,7 @@ namespace QL_STMN
         private void btnThem_Click(object sender, EventArgs e)
         {
             if (isDuplicatePriKey(txtMaNCC.Text))
-                MessageBox.Show("Trùng mã nhad cung cấp !!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Trùng mã nhà cung cấp !!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
                 themNCC();
         }

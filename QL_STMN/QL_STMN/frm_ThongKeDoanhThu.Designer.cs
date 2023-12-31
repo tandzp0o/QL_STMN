@@ -41,6 +41,7 @@ namespace QL_STMN
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_ThongKeDoanhThu));
             this.panel1 = new System.Windows.Forms.Panel();
             this.gr_DoanhThu_CacQuy = new System.Windows.Forms.GroupBox();
             this.chartQuarters = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -220,6 +221,7 @@ namespace QL_STMN
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(494, 745);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frm_ThongKeDoanhThu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

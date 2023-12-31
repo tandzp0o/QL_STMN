@@ -405,7 +405,8 @@
             // 
             // dataGridViewHoaDons
             // 
-            this.dataGridViewHoaDons.AllowUserToOrderColumns = true;
+            this.dataGridViewHoaDons.AllowUserToAddRows = false;
+            this.dataGridViewHoaDons.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewHoaDons.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewHoaDons.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -416,7 +417,9 @@
             this.dataGridViewHoaDons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewHoaDons.Location = new System.Drawing.Point(5, 20);
             this.dataGridViewHoaDons.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridViewHoaDons.MultiSelect = false;
             this.dataGridViewHoaDons.Name = "dataGridViewHoaDons";
+            this.dataGridViewHoaDons.ReadOnly = true;
             this.dataGridViewHoaDons.RowHeadersWidth = 62;
             this.dataGridViewHoaDons.RowTemplate.Height = 28;
             this.dataGridViewHoaDons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

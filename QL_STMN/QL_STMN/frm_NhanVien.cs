@@ -64,12 +64,25 @@ namespace QL_STMN
         }
         void LoadCombbChucVu()
         {
-            string strSel = "select*from ChucVu";
-            da_ChucVu = new SqlDataAdapter(strSel, KetNoiDB.strconn);
-            da_ChucVu.Fill(ds_ChucVu, "ChucVu");
-            comboBox_ChucVu.DataSource = ds_ChucVu.Tables["ChucVu"];
-            comboBox_ChucVu.DisplayMember = "TenCV";
-            comboBox_ChucVu.ValueMember = "MacV";
+            using (SqlConnection connection = new SqlConnection(KetNoiDB.strconn))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand("select TenCV from ChucVu", connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string chucvu = reader["TenCV"].ToString();
+
+
+                            // Add the item to the ComboBox
+                            comboBox_ChucVu.Items.Add(chucvu);
+                        }
+                    }
+                }
+            }
         }
         void LoadCombbSearchChucVu()
         {
@@ -245,7 +258,74 @@ namespace QL_STMN
         {
             this.Close();
         }
+        public string maCV(string tenCV)
+        {
+            string maCV="";
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(KetNoiDB.strconn))
+                {
+                    connection.Open();
 
+                    using (SqlCommand command = new SqlCommand("SELECT MaCV FROM ChucVu WHERE TenCV = @tencv", connection))
+                    {
+                        command.Parameters.AddWithValue("@tencv", tenCV);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                               maCV = reader["MaCV"].ToString();
+                            }
+                        }
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            {
+                // Xử lý lỗi nếu có
+                // Ví dụ: Log lỗi, hiển thị thông báo cho người dùng, hoặc thực hiện hành động khác.
+                // Ở đây tôi chỉ in lỗi ra màn hình để gỡ lỗi.
+                Console.WriteLine("Lỗi: " + ex.Message);
+            }
+
+            return maCV;
+        }
+        public string tenCV(string maCV)
+        {
+            string tenCV = "";
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(KetNoiDB.strconn))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand("SELECT TenCV FROM ChucVu WHERE MaCV = @macv", connection))
+                    {
+                        command.Parameters.AddWithValue("@macv", maCV);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                tenCV = reader["TenCV"].ToString();
+                            }
+                        }
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            {
+                // Xử lý lỗi nếu có
+                // Ví dụ: Log lỗi, hiển thị thông báo cho người dùng, hoặc thực hiện hành động khác.
+                // Ở đây tôi chỉ in lỗi ra màn hình để gỡ lỗi.
+                Console.WriteLine("Lỗi: " + ex.Message);
+            }
+
+            return tenCV;
+        }
         private void btnAdd_Click_1(object sender, EventArgs e)
         {
             if (kiemTraDuLieuSua())
@@ -255,7 +335,7 @@ namespace QL_STMN
                 string diaChi = txtDiaChi.Text;
                 string sdt = txtSDT.Text;
                 DateTime namSinh = dateTimePicker_NgaySinh.Value;
-                string maChucVu = comboBox_ChucVu.SelectedValue.ToString();
+                string maChucVu = maCV(comboBox_ChucVu.Text);
                 string gioiTinh = radNam.Checked ? "Nam" : "Nữ";
 
                 // Tạo nhân viên mới vào NhanVienSTMN
@@ -332,6 +412,7 @@ namespace QL_STMN
             {
                 MessageBox.Show("Vui lòng chọn nhân viên cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            LoadData();
         }
 
         private void DeleteNhanVienFromDatabase(string maNV)
@@ -355,7 +436,7 @@ namespace QL_STMN
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi xoá thông tin trong database: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Không thể xoá nhân viên", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -368,14 +449,19 @@ namespace QL_STMN
 
                 DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn cập nhật thông tin nhân viên có Mã NV: {maNVToUpdate}?",
                                                       "Xác nhận cập nhật", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
+                string maCv = comboBox_ChucVu.Text;
+ 
                 if (result == DialogResult.Yes && kiemTraDuLieuSua())
                 {
                     string tenNV = txtTenNV.Text;
                     string diaChi = txtDiaChi.Text;
                     string sdt = txtSDT.Text;
                     DateTime namSinh = dateTimePicker_NgaySinh.Value;
-                    string maChucVu = comboBox_ChucVu.SelectedValue.ToString();
+                    string maChucVu;
+                    if (maCv == "Quản lý")
+                        maChucVu = "CV01";
+                    else
+                        maChucVu= "CV02";
                     string gioiTinh = radNam.Checked ? "Nam" : "Nữ";
 
                     // Update employee information in the database
@@ -396,6 +482,7 @@ namespace QL_STMN
             {
                 MessageBox.Show("Vui lòng chọn nhân viên cần cập nhật!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            LoadData();
         }
 
         private void UpdateNhanVienInDatabase(string maNV, string tenNV, string gioiTinh, DateTime namSinh, string sdt, string diaChi, string maChucVu)
@@ -434,6 +521,37 @@ namespace QL_STMN
             // Cập nhật dữ liệu vào database
             LoadData();
             dgv_DanhSachNhanVien.ClearSelection();
+        }
+
+        private void dgv_DanhSachNhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+     
+
+        }
+
+        private void dgv_DanhSachNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int i;
+
+            i = dgv_DanhSachNhanVien.CurrentRow.Index;
+            txtMaNV.Text = dgv_DanhSachNhanVien.Rows[i].Cells[0].Value.ToString();
+            txtTenNV.Text = dgv_DanhSachNhanVien.Rows[i].Cells[1].Value.ToString();
+            string gt = dgv_DanhSachNhanVien.Rows[i].Cells[2].Value.ToString();
+            if (string.Compare(gt, "Nam") == 0)
+            {
+                radNam.Checked = true;
+                radNu.Checked = false;
+
+            }
+            else
+            {
+                radNam.Checked = false;
+                radNu.Checked = true;
+            }
+            dateTimePicker_NgaySinh.Text = dgv_DanhSachNhanVien.Rows[i].Cells[3].Value.ToString();
+            txtSDT.Text = dgv_DanhSachNhanVien.Rows[i].Cells[4].Value.ToString();
+            txtDiaChi.Text = dgv_DanhSachNhanVien.Rows[i].Cells[5].Value.ToString();
+            comboBox_ChucVu.Text = tenCV(dgv_DanhSachNhanVien.Rows[i].Cells[6].Value.ToString());
         }
     }
 }

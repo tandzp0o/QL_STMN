@@ -184,5 +184,25 @@ namespace QL_STMN
             closeConnection();
             return result;
         }
+
+        public DataTable ExecuteReader(string sql)
+        {
+            openConnection();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(reader);
+            reader.Close();
+            closeConnection();
+            return dt;
+        }
+        public object getScalar(string sql)
+        {
+            openConnection();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            object kq = cmd.ExecuteScalar();
+            closeConnection();
+            return kq;
+        }
     }
 }

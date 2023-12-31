@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_InPhieuNhap));
             this.dgvnhaphang = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.lblMaNhap = new System.Windows.Forms.Label();
@@ -193,6 +194,7 @@
             this.Controls.Add(this.lblMaNhap);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvnhaphang);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frm_InPhieuNhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

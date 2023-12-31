@@ -77,7 +77,7 @@ namespace QL_STMN
             newRow["Tên phiếu giảm"] = txtTenPGG.Text;
             newRow["Ngày bắt đầu"] = txtNgayBD1.Text;
             newRow["Ngày kết thúc"] = txtNgayKT.Text;
-            newRow["Giá trị giảm"] = txtGiaTriGG.Text;
+            newRow["Giá trị giảm (%)"] = txtGiaTriGG.Text;
             newRow["Ghi chú"] = txtGhiChu.Text;
             PGG.Rows.Add(newRow);
 
@@ -122,7 +122,7 @@ namespace QL_STMN
                 updateRow["Tên phiếu giảm"] = txtTenPGG.Text;
                 updateRow["Ngày bắt đầu"] = txtNgayBD1.Text;
                 updateRow["Ngày kết thúc"] = txtNgayKT.Text;
-                updateRow["Giá trị giảm"] = txtGiaTriGG.Text;
+                updateRow["Giá trị giảm (%)"] = txtGiaTriGG.Text;
                 updateRow["Ghi chú"] = txtGhiChu.Text;
                 updateRow.EndEdit();
             }

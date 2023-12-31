@@ -172,26 +172,44 @@ namespace QL_STMN
         }
         private void xoaHangHoa()
         {
-            if (MessageBox.Show("Xác nhận xóa hàng hóa này?", "Thông báo",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning) == DialogResult.Yes)
-            {
-                adap = new SqlDataAdapter("Select MaHH as N'Mã hàng hóa', TenHH as N'Tên hàng hóa', DVT, GiaNhap as N'Giá nhập', GiaBan as N'Giá bán', SoLuong as N'Số lượng', MaloaiHH as N'Mã loại', MaNCC as N'Mã nhà cung cấp' from HangHoa", conn);
-                DataRow deleteRow = ds_HangHoa.Tables["HH"].Rows.Find(txtMaHH.Text);
-                if (deleteRow != null)
-                    deleteRow.Delete();
-                SqlCommandBuilder cmdBuilder = new SqlCommandBuilder(adap);
-                int kq = adap.Update(ds_HangHoa.Tables["HH"]);
-                if (kq == 0)
-                {
-                    MessageBox.Show("Xóa hàng hóa không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    loadHangHoa();
-                }    
-                else
-                    MessageBox.Show("Xóa hàng hóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            //if (MessageBox.Show("Xác nhận xóa hàng hóa này?", "Thông báo",
+            //    MessageBoxButtons.YesNo,
+            //    MessageBoxIcon.Warning) == DialogResult.Yes)
+            //{
+            //    try
+            //    {
+            //        adap = new SqlDataAdapter("Select MaHH as N'Mã hàng hóa', TenHH as N'Tên hàng hóa', DVT, GiaNhap as N'Giá nhập', GiaBan as N'Giá bán', SoLuong as N'Số lượng', MaloaiHH as N'Mã loại', MaNCC as N'Mã nhà cung cấp' from HangHoa", conn);
+            //        DataRow deleteRow = ds_HangHoa.Tables["HH"].Rows.Find(txtMaHH.Text);
+            //        if (deleteRow != null)
+            //            deleteRow.Delete();
+            //        SqlCommandBuilder cmdBuilder = new SqlCommandBuilder(adap);
+            //        int kq = adap.Update(ds_HangHoa.Tables["HH"]);
+            //        if (kq == 0)
+            //        {
+            //            MessageBox.Show("Xóa hàng hóa không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //            loadHangHoa();
+            //        }
+            //        else
+            //            MessageBox.Show("Xóa hàng hóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
-                dgvHangHoa.DataSource = ds_HangHoa.Tables["HH"];    
+            //        dgvHangHoa.DataSource = ds_HangHoa.Tables["HH"];
+            //    }
+            //    catch (Exception)
+            //    {
+            //        MessageBox.Show("Không thể xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    }
+                 
+            //}
+            // xoá hàng hóa nếu dính tới khoá ngoại thì thông báo không thể xoá
+            string query = "delete from HangHoa where MaHH = '" + txtMaHH.Text + "'";
+            int kq = DBConnect.Instance.executeNonQuery(query);
+            if (kq == 0)
+            {
+                MessageBox.Show("Xóa hàng hóa không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                loadHangHoa();
             }
+            else
+                MessageBox.Show("Xóa hàng hóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
         private void suaHangHoa()
         {

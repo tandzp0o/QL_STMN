@@ -78,3 +78,4 @@ E:\CNPM\QL_ST\QL_STMN\QL_STMN\QL_STMN\obj\Debug\QL_STMN.frm_ThongKeDoanhThu.reso
 D:\CNPM_ST4\BaoCao_CNPM\QL_STMN\QL_STMN\QL_STMN\obj\Debug\QL_STMN.frm_TrangChu.resources
 E:\HAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHA\CNPM\a\QL_STMN\QL_STMN\QL_STMN\obj\Debug\Nhom1_QuanLySieuThiMini.frmQuanLy_TaiKhoan.resources
 D:\CNPM_ST4\BaoCao_CNPM\QL_STMN\QL_STMN\QL_STMN\obj\Debug\Nhom1_QuanLySieuThiMini.frmQuanLy_TaiKhoan.resources
+E:\HAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHA\CNPM\a\QL_STMN\QL_STMN\QL_STMN\obj\Debug\QL_STMN.frm_QLKhachHang.resources
